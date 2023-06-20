@@ -10,6 +10,9 @@ namespace BrawlhallaANMReader.utils
 		///<value>Whether or not logging to a file is enabled.</value>
 		public static bool FileEnable { get; set; } = false;
 
+		///<value>Whether or not debug messages are logged.</value>
+		public static bool DebugEnable { get; set; } = false;
+
 		///<value>The path to the log file.</value>
 		public static string FilePath { get; set; } = "./log.log";
 
@@ -19,8 +22,12 @@ namespace BrawlhallaANMReader.utils
 		///<summary>Initializes the logger.</summary>
 		static Logger()
 		{
+			Console.OutputEncoding = System.Text.Encoding.UTF8;
 			if (File.Exists(FilePath)) File.Delete(FilePath);
 			File.Create(FilePath).Close();
+			#if DEBUG
+				DebugEnable = true;
+			#endif
 		}
 
 		///<summary>Logs a message to the console.</summary>
@@ -64,7 +71,7 @@ namespace BrawlhallaANMReader.utils
 
 		///<summary>Logs a message.</summary>
 		///<param name="message">The message to log.</param>
-		public static void Log(string message) { Out(message, "[LOG]"); }
+		public static void Log(string message) { if (DebugEnable) Out(message, "[LOG]"); }
 
 		///<summary>Logs a warning.</summary>
 		///<param name="message">The message to log.</param>
@@ -76,7 +83,7 @@ namespace BrawlhallaANMReader.utils
 
 		///<summary>Logs a debug message.</summary>
 		///<param name="message">The message to log.</param>
-		public static void Debug(string message) { Out(message, "[DEBUG]", ConsoleColor.Green); }
+		public static void Debug(string message) { if (DebugEnable) Out(message, "[DEBUG]", ConsoleColor.Green); }
 
 		///<summary>Logs info.</summary>
 		///<param name="message">The message to log.</param>
