@@ -1,28 +1,29 @@
-﻿using System.Text.Json;
+﻿using BrawlhallaANMReader.utils;
+using System.Text.Json;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader
+namespace BrawlhallaANMReader.Anm
 {
-	///<summary>Class <c>AnmParser</c> is used to read ANM files.</summary>
-	[XmlRootAttribute("AnmParserXml", IsNullable = false)]
-	public class AnmParser
+	///<summary>Class <c>AnmFile</c> is used to read ANM files.</summary>
+	[XmlRootAttribute("AnmFileXml", IsNullable = false)]
+	public class AnmFile
 	{
-        ///<value>The name of the ANM file.</value>
-        [XmlAttribute]
-        public string Name { get; set; } = default!;
+		///<value>The name of the ANM file.</value>
+		[XmlAttribute]
+		public string Name { get; set; } = default!;
 
-        ///<value>The file header.</value>
-        public byte[] Header { get; set; } = default!;
+		///<value>The file header.</value>
+		public byte[] Header { get; set; } = default!;
 
 		///<value>The animation stores in the ANM file.</value>
 		public List<AnmStore> Stores { get; set; } = new();
 
-        ///<value>The <c>ByteStream</c> used to read the ANM file.</value>
-        [field:NonSerializedAttribute()]   
-        protected ByteStream buffer = default!;
+		///<value>The <c>ByteStream</c> used to read the ANM file.</value>
+		[field: NonSerializedAttribute()]
+		protected ByteStream buffer = default!;
 
 		///<summary>Initialises a new ANM parser.</summary>
-		public AnmParser() {}
+		public AnmFile() { }
 
 		///<summary>Parses an ANM file.</summary>
 		///<param name="path">The path to the ANM file.</param>
@@ -39,7 +40,7 @@ namespace BrawlhallaANMReader
 				Array.Copy(file, Header, 4);
 				byte[] compressed_data = new byte[file.Length - 4];
 				Array.Copy(file, 4, compressed_data, 0, compressed_data.Length);
-				byte[] decompressed_data = Utilities.InflateBuffer(compressed_data);
+				byte[] decompressed_data = Compression.InflateBuffer(compressed_data);
 				buffer = new(decompressed_data);
 				while (buffer.ReadBool())
 				{
@@ -51,7 +52,7 @@ namespace BrawlhallaANMReader
 			catch (Exception e)
 			{
 				Logger.Error(e.Message);
-				throw e;
+				throw;
 			}
 		}
 
@@ -67,23 +68,12 @@ namespace BrawlhallaANMReader
 		}
 
 		///<summary>Serialises the ANM into an XML object string.</summary>
-		///<param name="indent">The indentation level of the XML object.</param>
-		///<returns>The XML object string.</returns>
+		///<param name="path">The path to save the XML file to.</param>
 		public void ToXml(string path)
 		{
-            XmlSerializer x = new(this.GetType());
-            using StreamWriter writer = File.CreateText(path);
-            x.Serialize(writer, this);
-        }
-
-        ///<summary>Serialises the ANM into an XML object string.</summary>
-        ///<param name="indent">The indentation level of the XML object.</param>
-        ///<returns>The XML object string.</returns>
-        public void ToJson(string path)
-        {
-            string jsonString = JsonSerializer.Serialize(this);
-            using StreamWriter writer = File.CreateText(path);
-            writer.Write(jsonString);
-        }
-    }
+			XmlSerializer x = new(this.GetType());
+			using StreamWriter writer = File.CreateText(path);
+			x.Serialize(writer, this);
+		}
+	}
 }
