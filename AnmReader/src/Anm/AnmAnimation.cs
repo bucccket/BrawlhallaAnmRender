@@ -39,7 +39,7 @@ namespace BrawlhallaANMReader.Anm
 		public AnmFrame PreviewFrame { get => Frames[(int)m_preview_frame]; }
 
 		///<value>Index of the base start frame.</value>
-		protected uint m_base_start { get; private set; } = default!;
+		protected uint m_base_start { get; set; } = default!;
 
 		///<value>The base start frame.</value>
 		public AnmFrame BaseStart { get => Frames[(int)m_base_start]; }
