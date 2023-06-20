@@ -6,13 +6,13 @@ namespace BrawlhallaANMReader.utils
 	internal class BitStream
 	{
 		///<value>The buffer to read from.</value>
-		private readonly byte[] m_buffer;
+		protected readonly byte[] m_buffer;
 
 		///<value>The current position in the buffer.</value>
-		private int m_position;
+		protected int m_position;
 
 		///<value>The current bit position in the buffer.</value>
-		private byte m_bit_position;
+		protected byte m_bit_position;
 
 		///<summary>Initialises a new bit stream.</summary>
 		///<param name="buffer">The buffer to read from.</param>

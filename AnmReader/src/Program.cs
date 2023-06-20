@@ -7,9 +7,17 @@ string?[] InstallPath = new string?[] {
     Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Valve\Steam", "SteamPath", null) as string
 };
 
-InstallPath?.ToList().ForEach(item => Console.WriteLine("Got: \""+ item + "\""));
+// InstallPath?.ToList().ForEach(item => Console.WriteLine("Got: \""+ item + "\""));
 
-AnmFile thing = new();
-// thing.Parse(@"E:\SteamLibrary\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
-thing.Parse(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
-thing.ToXml(@".\out.xml");
+// AnmFile thing = new();
+// // thing.Parse(@"E:\SteamLibrary\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
+// thing.Parse(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
+// thing.ToXml(@".\out.xml");
+
+Logger.FileEnable = true;
+
+Logger.Log("hi mom");
+Logger.Warn("hi mom");
+Logger.Error("hi mom");
+Logger.Debug("hi mom");
+Logger.Info("hi mom");

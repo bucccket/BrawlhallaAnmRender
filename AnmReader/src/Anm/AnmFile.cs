@@ -1,5 +1,4 @@
 ﻿using BrawlhallaANMReader.utils;
-using System.Text.Json;
 using System.Xml.Serialization;
 
 namespace BrawlhallaANMReader.Anm
