@@ -1,10 +1,11 @@
-﻿using System.Xml.Serialization;
+﻿using BrawlhallaANMReader.utils;
+using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader
+namespace BrawlhallaANMReader.Anm
 {
 	///<summary>Class <c>AnmFrame</c> represents a frame in an animation.</summary>
-    public class AnmFrame
-    {
+	public class AnmFrame
+	{
 		///<value>The ID of the frame.</value>
 		public ushort FrameID { get; set; } = default!;
 
@@ -24,7 +25,7 @@ namespace BrawlhallaANMReader
 		public List<AnmBone> Bones { get; set; } = new();
 
 		///<summary>Initialises a new frame.</summary>
-		public AnmFrame() {}
+		public AnmFrame() { }
 
 		///<summary>Parses a frame from an animation.</summary>
 		///<param name="buffer">The animation to parse from.</param>
@@ -34,7 +35,7 @@ namespace BrawlhallaANMReader
 		{
 			try
 			{
-				FrameID = (ushort)buffer.ReadShort();
+				FrameID = buffer.ReadUShort();
 				OffsetA.Parse(buffer);
 				OffsetB.Parse(buffer);
 				Unused = buffer.ReadDouble();
@@ -45,33 +46,33 @@ namespace BrawlhallaANMReader
 				Logger.Error("Frame parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Frame parsing error.  Buffer reached end unexpectedly.");
 			}
-			for (uint i = 0; i < BonesCount; i++)
+			for (int i = 0; i < BonesCount; i++)
 			{
 				AnmBone bone = new();
-                if(buffer.ReadBool())
+				if (buffer.ReadBool())
 				{
-					bone = last_frame!.Bones[(int)i].Clone();
+					bone = last_frame!.Bones[i].Clone();
 					if (!buffer.ReadBool()) bone.BoneMovieClipFrame = buffer.ReadShort();
 				}
 				else bone.Parse(buffer);
 				Bones.Add(bone);
 			}
 		}
-    }
+	}
 
 	///<summary>Class <c>Point</c> represents a point in 2D space.</summary>
 	public class Point
 	{
-        ///<value>The X coordinate of the point.</value>
-        [XmlAttribute]
-        public double X { get; set; } = default!;
+		///<value>The X coordinate of the point.</value>
+		[XmlAttribute]
+		public double X { get; set; } = default!;
 
-        ///<value>The Y coordinate of the point.</value>
-        [XmlAttribute]
-        public double Y { get; set; } = default!;
+		///<value>The Y coordinate of the point.</value>
+		[XmlAttribute]
+		public double Y { get; set; } = default!;
 
 		///<summary>Initialises a new point.</summary>
-		public Point() {}
+		public Point() { }
 
 		///<summary>Initialises a new point.</summary>
 		///<param name="x">The X coordinate of the point.</param>

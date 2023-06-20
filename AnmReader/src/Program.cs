@@ -1,4 +1,5 @@
-﻿using BrawlhallaANMReader;
+﻿using BrawlhallaANMReader.Anm;
+using BrawlhallaANMReader.utils;
 using Microsoft.Win32;
 
 string?[] InstallPath = new string?[] {
@@ -8,7 +9,7 @@ string?[] InstallPath = new string?[] {
 
 InstallPath?.ToList().ForEach(item => Console.WriteLine("Got: \""+ item + "\""));
 
-AnmParser thing = new();
-thing.Parse(@"E:\SteamLibrary\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
+AnmFile thing = new();
+// thing.Parse(@"E:\SteamLibrary\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
+thing.Parse(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
 thing.ToXml(@".\out.xml");
-thing.ToJson(@".\out.json");
