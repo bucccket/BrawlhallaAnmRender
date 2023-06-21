@@ -4,6 +4,8 @@ using System.Xml.Serialization;
 namespace BrawlhallaANMReader.Anm
 {
 	///<summary>Class <c>AnmFile</c> is used to read ANM files.</summary>
+	///<remarks>This is only compatible with animation files from patch 7.03 onwards (Battle Pass Season 7).</remarks>
+	///<see>https://www.brawlhalla.com/news/battle-pass-season-7-valhallaquest-patch-7-03/</see>
 	[XmlRootAttribute("AnmFileXml", IsNullable = false)]
 	public class AnmFile
 	{
@@ -50,7 +52,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (Exception e)
 			{
-				Logger.Error(e.Message);
+				Logger.Error($"AnmFile: {e.Message}");
 				throw;
 			}
 		}
@@ -62,17 +64,17 @@ namespace BrawlhallaANMReader.Anm
 		public AnmStore GetStoreByName(string index)
 		{
 			foreach (AnmStore store in Stores) if (store.Name.Contains(index)) return store;
-			Logger.Error("Animation store with name " + index + " does not exist.");
-			throw new AnmParsingException("Animation store with name " + index + " does not exist.");
+			Logger.Error($"AnmFile: Animation store with name {index} does not exist.");
+			throw new AnmParsingException($"Animation store with name {index} does not exist.");
 		}
 
-		///<summary>Serialises the ANM into an XML object string.</summary>
+		///<summary>Serialises the ANM into an XML file.</summary>
 		///<param name="path">The path to save the XML file to.</param>
 		public void ToXml(string path)
 		{
-			XmlSerializer x = new(this.GetType());
+			XmlSerializer serialiser = new(this.GetType());
 			using StreamWriter writer = File.CreateText(path);
-			x.Serialize(writer, this);
+			serialiser.Serialize(writer, this);
 		}
 	}
 }

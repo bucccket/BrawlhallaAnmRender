@@ -1,5 +1,6 @@
 ﻿using BrawlhallaANMReader.Anm;
 using BrawlhallaANMReader.utils;
+using BrawlhallaANMReader.Lang;
 using Microsoft.Win32;
 
 string?[] InstallPath = new string?[] {
@@ -14,10 +15,11 @@ string?[] InstallPath = new string?[] {
 // thing.Parse(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\anims\Animation_Aang.anm");
 // thing.ToXml(@".\out.xml");
 
-Logger.FileEnable = true;
+string xml = File.ReadAllText(@"C:\Users\omart\OneDrive\Documents\Brawlhalla Files\Engine\LanguageTypes.xml");
+LanguageType.Parse(xml);
 
-Logger.Log("hi mom");
-Logger.Warn("hi mom");
-Logger.Error("hi mom");
-Logger.Debug("hi mom");
-Logger.Info("hi mom");
+// foreach (LanguageType lang in LanguageType.LanguageTypes) Logger.Debug(lang.ToString());
+
+StringTable.LoadLanguageBins(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\languages");
+Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguage(1)).Substring(0, 4));
+

@@ -37,7 +37,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Animation store parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmStore: Animation store parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Animation store parsing error.  Buffer reached end unexpectedly.");
 			}
 			for (int i = 0; i < AnimationCount; i++)
@@ -55,7 +55,7 @@ namespace BrawlhallaANMReader.Anm
 		public AnmAnimation GetAnimationByName(string index)
 		{
 			foreach (AnmAnimation animation in Animations) if (animation.Name.Contains(index)) return animation;
-			Logger.Error($"Animation with name {index} does not exist.");
+			Logger.Error($"AnmStore: Animation with name {index} does not exist.");
 			throw new AnmParsingException($"Animation with name {index} does not exist.");
 		}
 	}

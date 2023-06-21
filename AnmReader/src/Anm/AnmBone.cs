@@ -93,7 +93,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Bone parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmBone: Bone parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Bone parsing error.  Buffer reached end unexpectedly.");
 			}
 		}
@@ -134,7 +134,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Vector parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmBone: Vector parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Vector parsing error.  Buffer reached end unexpectedly.");
 			}
 		}
@@ -214,7 +214,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Transformation matrix parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmBone: Transformation matrix parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Transformation matrix parsing error.  Buffer reached end unexpectedly.");
 			}
 		}
@@ -283,7 +283,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Affine transformation matrix parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmBone: Affine transformation matrix parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Affine transformation matrix parsing error.  Buffer reached end unexpectedly.");
 			}
 		}
