@@ -44,7 +44,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Frame parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmFrame: Frame parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Frame parsing error.  Buffer reached end unexpectedly.");
 			}
 			for (int i = 0; i < BonesCount; i++)
@@ -102,7 +102,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Point parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmFrame: Point parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException("Point parsing error.  Buffer reached end unexpectedly.");
 			}
 		}

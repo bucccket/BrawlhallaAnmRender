@@ -33,21 +33,21 @@ namespace BrawlhallaANMReader.Lang
 		{
 			if (path is null)
 			{
-				Logger.Error("No language files found in the specified directory.");
+				Logger.Error("StringTable: No language files found in the specified directory.");
 				throw new FileNotFoundException("No language files found in the specified directory.");
 			}
 			ClearStringTable();
 			string[] files = Directory.GetFiles(path, s_language_bin_filename, SearchOption.TopDirectoryOnly);
 			if (files.Length == 0)
 			{
-				Logger.Error("No language files found in the specified directory.");
+				Logger.Error("StringTable: No language files found in the specified directory.");
 				throw new FileNotFoundException("No language files found in the specified directory.");
 			}
 			List<string> valid_files = new();
 			foreach (string file in files) if (Regex.IsMatch(file, s_language_bin_regex)) valid_files.Add(file);
 			if (valid_files.Count == 0)
 			{
-				Logger.Error("No valid language files found in the specified directory.");
+				Logger.Error("StringTable: No valid language files found in the specified directory.");
 				throw new FileNotFoundException("No valid language files found in the specified directory.");
 			}
 			LanguageCount = (uint)valid_files.Count;
@@ -70,7 +70,7 @@ namespace BrawlhallaANMReader.Lang
 		{
 			if (path is null)
 			{
-				Logger.Error("Invalid path to language file.");
+				Logger.Error("StringTable: Invalid path to language file.");
 				throw new FileNotFoundException("Invalid path to language file.");
 			}
 			ClearStringTable();
@@ -131,7 +131,7 @@ namespace BrawlhallaANMReader.Lang
 		{
 			if (language_id == 0)
 			{
-				Logger.Error("Language ID cannot be 0.");
+				Logger.Error("StringTable: Language ID cannot be 0.");
 				throw new ArgumentException("Language ID cannot be 0.");
 			}
 			if (s_string_table.ContainsKey(key)) s_string_table[key][language_id] = value;

@@ -82,7 +82,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (IndexOutOfRangeException)
 			{
-				Logger.Error("Animation store parsing error.  Buffer reached end unexpectedly.");
+				Logger.Error("AnmAnimation: Animation store parsing error.  Buffer reached end unexpectedly.");
 				throw new AnmParsingException();
 			}
 			for (int i = 0; i < FrameCount; i++)

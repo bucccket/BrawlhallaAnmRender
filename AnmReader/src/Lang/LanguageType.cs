@@ -70,18 +70,23 @@ namespace BrawlhallaANMReader.Lang
 		{
 			try
 			{
+				List<LanguageType> langs = Deserialiser.XmlListDeserialise<LanguageType>(xml, "LanguageTypes", "LanguageType", "<LanguageID>0</LanguageID>", DataAcceptancePolicy.DeclineWholeFileOnInvalid);
 				LanguageTypes.Clear();
-				LanguageTypes.AddRange(XmlListDeserialiser.Deserialise<LanguageType>(xml, "LanguageTypes", "LanguageType", "<LanguageID>0</LanguageID>"));
+				LanguageTypes.AddRange(langs);
 			}
 			catch (InvalidOperationException)
 			{
-				Logger.Error("Invalid XML file; cleared list.");
-				LanguageTypes.Clear();
+				Logger.Error("LanguageTypes: Invalid XML file.");
+				throw;
+			}
+			catch (NullReferenceException)
+			{
+				Logger.Error("LanguageTypes: No LanguageTypes were found in XML file.");
 				throw;
 			}
 			catch (Exception e)
 			{
-				Logger.Error(e.Message);
+				Logger.Error($"LanguageTypes: {e.Message}");
 				throw;
 			}
 		}
@@ -89,7 +94,25 @@ namespace BrawlhallaANMReader.Lang
 		///<summary>Gets a language by its ID.</summary>
 		///<param name="id">The ID of the language.</param>
 		///<returns>The language with the given ID.</returns>
-		public static LanguageType GetLanguageByID(uint id) => LanguageTypes.Find(language => language.LanguageID == id);
-		////TODO: null check
+		///<exception cref="NullReferenceException">Thrown when the language with the given ID is not found.</exception>
+		public static LanguageType GetLanguage(uint id)
+		{
+			LanguageType? lang = LanguageTypes.Find(language => language.LanguageID == id);
+			if (lang != null) return lang;
+			Logger.Error($"LanguageTypes: Language with ID {id} not found.");
+			throw new NullReferenceException($"Language with ID {id} not found.");
+		}
+		
+		///<summary>Gets a language by its name.</summary>
+		///<param name="name">The name of the language.</param>
+		///<returns>The language with the given name.</returns>
+		///<exception cref="NullReferenceException">Thrown when the language with the given name is not found.</exception>
+		public static LanguageType GetLanguage(string name)
+		{
+			LanguageType? lang = LanguageTypes.Find(language => language.LanguageName == name);
+			if (lang != null) return lang;
+			Logger.Error($"LanguageTypes: Language with name {name} not found.");
+			throw new NullReferenceException($"Language with name {name} not found.");
+		}
 	}
 }

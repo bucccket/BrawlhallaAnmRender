@@ -21,5 +21,5 @@ LanguageType.Parse(xml);
 // foreach (LanguageType lang in LanguageType.LanguageTypes) Logger.Debug(lang.ToString());
 
 StringTable.LoadLanguageBins(@"C:\Program Files (x86)\Steam\steamapps\common\Brawlhalla\languages");
-Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguageByID(1)).Substring(0, 4));
+Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguage(1)).Substring(0, 4));
 

@@ -52,7 +52,7 @@ namespace BrawlhallaANMReader.Anm
 			}
 			catch (Exception e)
 			{
-				Logger.Error(e.Message);
+				Logger.Error($"AnmFile: {e.Message}");
 				throw;
 			}
 		}
@@ -64,8 +64,8 @@ namespace BrawlhallaANMReader.Anm
 		public AnmStore GetStoreByName(string index)
 		{
 			foreach (AnmStore store in Stores) if (store.Name.Contains(index)) return store;
-			Logger.Error("Animation store with name " + index + " does not exist.");
-			throw new AnmParsingException("Animation store with name " + index + " does not exist.");
+			Logger.Error($"AnmFile: Animation store with name {index} does not exist.");
+			throw new AnmParsingException($"Animation store with name {index} does not exist.");
 		}
 
 		///<summary>Serialises the ANM into an XML file.</summary>
