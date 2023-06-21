@@ -68,13 +68,13 @@ namespace BrawlhallaANMReader.Anm
 			throw new AnmParsingException("Animation store with name " + index + " does not exist.");
 		}
 
-		///<summary>Serialises the ANM into an XML object string.</summary>
+		///<summary>Serialises the ANM into an XML file.</summary>
 		///<param name="path">The path to save the XML file to.</param>
 		public void ToXml(string path)
 		{
-			XmlSerializer x = new(this.GetType());
+			XmlSerializer serialiser = new(this.GetType());
 			using StreamWriter writer = File.CreateText(path);
-			x.Serialize(writer, this);
+			serialiser.Serialize(writer, this);
 		}
 	}
 }

@@ -15,8 +15,9 @@ namespace BrawlhallaANMReader.Anm
 		///<value>The second offset of the frame.</value>
 		public Point OffsetB { get; set; } = new();
 
-		///<value>Unused.</value>
-		public double Unused { get; set; } = default!;
+		///<value>The rotation of the frame.</value>
+		///<remarks>This value is seemingly unused and appears to always be NaN.</remarks>
+		public double Rotation { get; set; } = default!;
 
 		///<value>Number of bones in the frame.</value>
 		public short BonesCount { get; set; } = default!;
@@ -38,7 +39,7 @@ namespace BrawlhallaANMReader.Anm
 				FrameID = buffer.ReadUShort();
 				OffsetA.Parse(buffer);
 				OffsetB.Parse(buffer);
-				Unused = buffer.ReadDouble();
+				Rotation = buffer.ReadDouble();
 				BonesCount = buffer.ReadShort();
 			}
 			catch (IndexOutOfRangeException)

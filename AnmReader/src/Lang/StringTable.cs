@@ -166,7 +166,6 @@ namespace BrawlhallaANMReader.Lang
 		///If the specified key is not found, it will be echoed back.<br/>
 		///This return behaviour mimics the that of the game.</para>
 		///</remarks>
-		////TODO: Uncomment when LanguageType is implemented.
-		// public static string GetString(string key, LanguageType language) => GetString(key, language.LanguageID);
+		public static string GetString(string key, LanguageType language) => GetString(key, language.LanguageID);
 	}
 }

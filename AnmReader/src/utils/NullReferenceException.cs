@@ -1,4 +1,5 @@
 namespace BrawlhallaANMReader.utils
+////TODO: better name
 {
 	///<summary>Class <c>NullReferenceTypeException</c> is used to throw an exception when a search for a type returns null.</summary>
 	public class NullReferenceTypeException : Exception
