@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 
+
+//TODO: add safeguarding to deserialization
+//TODO: add unit testing 
 namespace BrawlhallaANMReader.CSV
 {
     /// <summary>
@@ -63,7 +66,7 @@ namespace BrawlhallaANMReader.CSV
                     }
                 }
                 collumns = tfp.ReadFields();
-                if (collumns == null)
+                if (collumns is null)
                     throw new InvalidCsvFormatException(@"Failed to read collumns");
             }
             catch (Exception ex)
@@ -91,7 +94,7 @@ namespace BrawlhallaANMReader.CSV
 
                     PropertyInfo? prop = _properties.FirstOrDefault(a => a.Name.Equals(col, StringComparison.InvariantCultureIgnoreCase));
 
-                    if (prop == null)
+                    if (prop is null)
                         continue;
 
                     try
@@ -102,8 +105,8 @@ namespace BrawlhallaANMReader.CSV
                     }
                     catch (Exception ex)
                     {
-                        Logger.Error(String.Format(@"Cannot Parse {0}:'{1}'", col, val));
-                        throw new InvalidCsvFormatException(String.Format(@"Cannot Parse {0}:'{1}'", col, val), ex);
+                        Logger.Error($"Cannot Parse {col}:'{val}'");
+                        throw new InvalidCsvFormatException($"Cannot Parse {col}:'{val}'", ex);
                     }
                 }
                 data.Add(datum);
