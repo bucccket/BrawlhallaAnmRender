@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using BrawlhallaANMReader.utils;
+using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
@@ -67,6 +68,7 @@ namespace BrawlhallaANMReader.CSV
             }
             catch (Exception ex)
             {
+                Logger.Error("The CSV File is Invalid. See Inner Exception for more inoformation.");
                 throw new InvalidCsvFormatException("The CSV File is Invalid. See Inner Exception for more inoformation.", ex);
             }
 
@@ -98,9 +100,10 @@ namespace BrawlhallaANMReader.CSV
                         object? convertedValue = converter.ConvertFrom(val);
                         prop.SetValue(datum, convertedValue, null);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        throw new InvalidCsvFormatException(String.Format(@"Cannot Parse {0}:'{1}'", col, val));
+                        Logger.Error(String.Format(@"Cannot Parse {0}:'{1}'", col, val));
+                        throw new InvalidCsvFormatException(String.Format(@"Cannot Parse {0}:'{1}'", col, val), ex);
                     }
                 }
                 data.Add(datum);
