@@ -2,10 +2,10 @@
 using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
 using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
-
-//TODO: add safeguarding to deserialization
+//TODO: implement a proper way to store CSV file headers
+    //  an idea would be to make a serperate CSV class, further sbstracting the deseralization and serialization by having a builtin stream etc
 //TODO: add unit testing 
 namespace BrawlhallaANMReader.CSV
 {
@@ -16,9 +16,11 @@ namespace BrawlhallaANMReader.CSV
     public class CsvSerializer<T> where T : class, new()
     {
         public bool IgnoreReferenceTypesExceptString { get; set; } = true;
-        public int SkippedLines { get; set; } = 0;
+        public bool HasHeader { get; set; } = false;
+        public string Delimiter { get; set; } = ",";
 
         private readonly List<PropertyInfo> _properties;
+        private string? _header;
 
         public CsvSerializer()
         {
@@ -38,7 +40,7 @@ namespace BrawlhallaANMReader.CSV
 
             _properties = (from prop in properties
                            where prop.GetCustomAttribute<CsvIgnoreAttribute>() == null
-                           orderby prop.Name
+                           //orderby prop.Name
                            select prop).ToList();
         }
 
@@ -56,14 +58,13 @@ namespace BrawlhallaANMReader.CSV
             tfp.TextFieldType = FieldType.Delimited;
             tfp.SetDelimiters(",");
 
+            List<T> data = new();
+
             try
             {
-                if (SkippedLines > 0)
+                if (HasHeader)
                 {
-                    for (int i = 0; i < SkippedLines; i++)
-                    {
-                        tfp.ReadLine();
-                    }
+                    _header = tfp.ReadLine();
                 }
                 collumns = tfp.ReadFields();
                 if (collumns is null)
@@ -75,14 +76,9 @@ namespace BrawlhallaANMReader.CSV
                 throw new InvalidCsvFormatException("The CSV File is Invalid. See Inner Exception for more inoformation.", ex);
             }
 
-            List<T> data = new();
-
             while (!tfp.EndOfData)
             {
                 string[]? cells = tfp.ReadFields() ?? throw new InvalidCsvFormatException(@"Reader finished all lines before end of file.");
-                if (cells == null)
-                    throw new InvalidCsvFormatException(@"Reader finished all lines before end of file.");
-
                 if (cells.Length == 1 && cells[0] != null && cells[0] == "EOF")
                     break;
 
@@ -94,19 +90,19 @@ namespace BrawlhallaANMReader.CSV
 
                     PropertyInfo? prop = _properties.FirstOrDefault(a => a.Name.Equals(col, StringComparison.InvariantCultureIgnoreCase));
 
-                    if (prop is null)
-                        continue;
-
-                    try
+                    if (prop is not null)
                     {
-                        TypeConverter converter = TypeDescriptor.GetConverter(prop.PropertyType);
-                        object? convertedValue = converter.ConvertFrom(val);
-                        prop.SetValue(datum, convertedValue, null);
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Error($"Cannot Parse {col}:'{val}'");
-                        throw new InvalidCsvFormatException($"Cannot Parse {col}:'{val}'", ex);
+                        try
+                        {
+                            TypeConverter converter = TypeDescriptor.GetConverter(prop.PropertyType);
+                            object? convertedValue = converter.ConvertFrom(val);
+                            prop.SetValue(datum, convertedValue, null);
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.Error($"Cannot Parse {col}:'{val}'");
+                            throw new InvalidCsvFormatException($"Cannot Parse {col}:'{val}'", ex);
+                        }
                     }
                 }
                 data.Add(datum);
@@ -116,8 +112,36 @@ namespace BrawlhallaANMReader.CSV
 
         public void Serialize(Stream stream, IList<T> data)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new();
+            List<string> values = new();
+
+            if (HasHeader)
+            {
+                sb.AppendLine(_header);
+            }
+
+            sb.AppendLine(string.Join(Delimiter, _properties.Select(a => a.Name).ToArray()));
+
+            foreach (T item in data)
+            {
+                values.Clear(); //🍆
+                foreach (PropertyInfo prop in _properties)
+                {
+                    String value = prop.GetValue(item)?.ToString() ?? "";
+
+                    if (value.IndexOf(',') > 0)
+                        value = $"\"{value}\"";
+
+                    values.Add(value);
+                }
+
+                sb.AppendLine(string.Join(Delimiter.ToString(), values.ToArray()));
+            }
+
+            using StreamWriter sw = new(stream);
+            sw.Write(sb.ToString().Trim());
         }
+
     }
 
     [AttributeUsage(AttributeTargets.Field)]
