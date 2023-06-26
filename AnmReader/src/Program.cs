@@ -1,4 +1,5 @@
-﻿using BrawlhallaANMReader.Anm;
+﻿using AnmReader.src.CSV;
+using BrawlhallaANMReader.Anm;
 using BrawlhallaANMReader.CSV;
 using BrawlhallaANMReader.Lang;
 using BrawlhallaANMReader.utils;
@@ -26,9 +27,16 @@ StringTable.LoadLanguageBins($"{BrawlhallaFolder}\\languages");
 Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguage(1))[..4]);
 
 
-CsvSerializer<HurtboxTypes> ser = new()
+CsvSerializer<HurtboxType> ser = new()
 {
     HasHeader = true
 };
-IList<HurtboxTypes> csvFileData = ser.Deserialize(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
+IList<HurtboxType> csvFileData = ser.Deserialize(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
 ser.Serialize(File.OpenWrite(@".\test.csv"), csvFileData);
+
+CsvSerializer<PowerType> pow = new()
+{
+    HasHeader = true
+};
+IList<PowerType> csvPowerFileData = pow.Deserialize(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
+pow.Serialize(File.OpenWrite(@".\powertest.csv"), csvPowerFileData);

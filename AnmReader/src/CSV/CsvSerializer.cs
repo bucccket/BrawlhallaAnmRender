@@ -1,11 +1,13 @@
-﻿using BrawlhallaANMReader.utils;
+﻿using AnmReader.src.CSV;
+using BrawlhallaANMReader.utils;
 using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 
 //TODO: implement a proper way to store CSV file headers
-    //  an idea would be to make a serperate CSV class, further sbstracting the deseralization and serialization by having a builtin stream etc
+//  an idea would be to make a serperate CSV class, further sbstracting the deseralization and serialization by having a builtin stream etc
 //TODO: add unit testing 
 namespace BrawlhallaANMReader.CSV
 {
@@ -67,6 +69,11 @@ namespace BrawlhallaANMReader.CSV
                     _header = tfp.ReadLine();
                 }
                 collumns = tfp.ReadFields();
+                for(int i = 0; i<collumns.Length; i++)
+                {
+                    collumns[i] = collumns[i].Replace(".", "_");
+                }
+                collumns.ToList().ForEach(a => Logger.Debug(a));
                 if (collumns is null)
                     throw new InvalidCsvFormatException(@"Failed to read collumns");
             }
@@ -76,6 +83,7 @@ namespace BrawlhallaANMReader.CSV
                 throw new InvalidCsvFormatException("The CSV File is Invalid. See Inner Exception for more inoformation.", ex);
             }
 
+            int n = 1;
             while (!tfp.EndOfData)
             {
                 string[]? cells = tfp.ReadFields() ?? throw new InvalidCsvFormatException(@"Reader finished all lines before end of file.");
@@ -87,6 +95,11 @@ namespace BrawlhallaANMReader.CSV
                 {
                     string val = cells[i];
                     string col = collumns[i];
+
+                    if (val.IndexOf("\"") > 0 && val.Length > 0)
+                    {
+                        val = $"\"{val.Replace("\"", "\"\"")}\"";
+                    }
 
                     PropertyInfo? prop = _properties.FirstOrDefault(a => a.Name.Equals(col, StringComparison.InvariantCultureIgnoreCase));
 
@@ -120,7 +133,7 @@ namespace BrawlhallaANMReader.CSV
                 sb.AppendLine(_header);
             }
 
-            sb.AppendLine(string.Join(Delimiter, _properties.Select(a => a.Name).ToArray()));
+            sb.AppendLine(string.Join(Delimiter, _properties.Select(a => a.Name.Replace("_",".")).ToArray()));
 
             foreach (T item in data)
             {
@@ -144,6 +157,6 @@ namespace BrawlhallaANMReader.CSV
 
     }
 
-    [AttributeUsage(AttributeTargets.Field)]
+    [AttributeUsage(AttributeTargets.Property)]
     internal class CsvIgnoreAttribute : Attribute { }
 }
