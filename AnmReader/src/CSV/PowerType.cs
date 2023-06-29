@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AnmReader.src.CSV
+﻿namespace BrawlhallaANMReader.CSV
 {
+    [Serializable()]
     public class PowerType
     {
+        [CsvIgnore]
+        public static IList<PowerType>? PowerTypes { get; set; } = default;
         public string PowerName { get; set; } = default!;
         public string PowerID { get; set; } = default!;
         public string OrderID { get; set; } = default!;
@@ -150,25 +147,13 @@ namespace AnmReader.src.CSV
         public string CannotAttackAroundCorners { get; set; } = default!;
         public string ForceHitThroughSoftPlat { get; set; } = default!;
         public string ForceFaceRight { get; set; } = default!;
-        public string CastGfx_AnimFile { get; set; } = default!;
-        public string CastGfx_AnimClass { get; set; } = default!;
-        public string CastGfx_AnimScale { get; set; } = default!;
-        public string CastGfx_FireAndForget { get; set; } = default!;
-        public string CastGfx_MoveAnimSpeed { get; set; } = default!;
-        public string CastGfx_FlipAnim { get; set; } = default!;
-        public string CastGfx_Tint { get; set; } = default!;
+        public CastGfx CastGfx { get; set; } = new();
         public string CastGfxRotation { get; set; } = default!;
         public string IsWorldFireGfx { get; set; } = default!;
         public string IsAttackFireGfx { get; set; } = default!;
         public string CustomArtFireGfx { get; set; } = default!;
         public string FireAnimSource { get; set; } = default!;
-        public string FireGfx_AnimFile { get; set; } = default!;
-        public string FireGfx_AnimClass { get; set; } = default!;
-        public string FireGfx_AnimScale { get; set; } = default!;
-        public string FireGfx_FireAndForget { get; set; } = default!;
-        public string FireGfx_MoveAnimSpeed { get; set; } = default!;
-        public string FireGfx_FlipAnim { get; set; } = default!;
-        public string FireGfx_Tint { get; set; } = default!;
+        public FireGfx FireGfx { get; set; } = new();
         public string FireGfxRotation { get; set; } = default!;
         public string IsWorldHitGfx { get; set; } = default!;
         public string OnlyOnceHitGfx { get; set; } = default!;
@@ -176,11 +161,24 @@ namespace AnmReader.src.CSV
         public string PlayHitGfxBehind { get; set; } = default!;
         public string HitAnimSource { get; set; } = default!;
         public string HitReactAnim { get; set; } = default!;
-        public string HitGfx_AnimFile { get; set; } = default!;
-        public string HitGfx_AnimClass { get; set; } = default!;
-        public string HitGfx_AnimScale { get; set; } = default!;
-        public string HitGfx_FireAndForget { get; set; } = default!;
-        public string HitGfx_Tint { get; set; } = default!;
+        public HitGfx HitGfx { get; set; } = new();
 
+        private readonly CsvSerializer<PowerType> _csv = new()
+        {
+            HasHeader = true
+        };
+
+        public PowerType()
+        {
+
+        }
+        public void Parse(Stream stream)
+        {
+            PowerTypes = _csv.Deserialize(stream);
+        }
+        public void Write(FileStream stream)
+        {
+            _csv.Serialize(stream, PowerTypes ?? throw new NullReferenceException());
+        }
     }
 }
