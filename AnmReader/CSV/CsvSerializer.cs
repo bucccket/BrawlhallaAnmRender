@@ -53,7 +53,7 @@ namespace BrawlhallaANMReader.CSV
             catch (Exception ex)
             {
                 Logger.Error("The CSV File is Invalid. See Inner Exception for more inoformation.");
-                throw new InvalidCsvFormatException("The CSV File is Invalid. See Inner Exception for more inoformation.", ex);
+                throw;
             }
 
             while (!tfp.EndOfData)
@@ -93,8 +93,16 @@ namespace BrawlhallaANMReader.CSV
                         else
                         {
                             TypeConverter converter = TypeDescriptor.GetConverter(prop.PropertyType);
-                            object? convertedValue = converter.ConvertFrom(val);
-                            prop.SetValue(datum, convertedValue);
+                            try
+                            {
+                                object? convertedValue = converter.ConvertFrom(val);
+                                prop.SetValue(datum, convertedValue);
+                            }
+                            catch (Exception ex)
+                            {
+                                Logger.Error(ex.Message);
+                                throw;
+                            }
                         }
                     }
                 }

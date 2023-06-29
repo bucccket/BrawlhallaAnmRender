@@ -26,7 +26,10 @@ StringTable.LoadLanguageBins($"{BrawlhallaFolder}\\languages");
 Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguage(1))[..4]);
 
 HurtboxType hbt = new();
-hbt.Parse(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
+//hbt.Parse(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
 
 PowerType pwt = new();
-pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
+//pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
+
+SpriteData spd = new();
+spd.Parse(File.OpenRead($"{SwzPath}\\Game\\spriteData.csv"));
