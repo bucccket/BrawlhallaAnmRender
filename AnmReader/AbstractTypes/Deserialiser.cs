@@ -1,8 +1,8 @@
-﻿using BrawlhallaANMReader.utils;
+﻿using BrawlhallaANMReader.ANM.utils;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.AbstractTypes
+namespace BrawlhallaANMReader.ANM.AbstractTypes
 {
     ///<summary>Class <c>Deserialiser</c> is used to deserialise files that contain lists of AbstractTypes.</summary>
     internal static class Deserialiser

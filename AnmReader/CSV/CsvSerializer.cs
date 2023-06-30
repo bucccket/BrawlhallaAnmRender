@@ -1,10 +1,10 @@
-﻿using BrawlhallaANMReader.utils;
+﻿using BrawlhallaANMReader.ANM.utils;
 using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
 using System.Reflection;
 using System.Text;
 
-namespace BrawlhallaANMReader.CSV
+namespace BrawlhallaANMReader.ANM.CSV
 {
     public class CsvSerializer<T> where T : class, new()
     {

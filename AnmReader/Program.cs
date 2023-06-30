@@ -1,7 +1,7 @@
-﻿using BrawlhallaANMReader.Anm;
-using BrawlhallaANMReader.CSV;
-using BrawlhallaANMReader.Lang;
-using BrawlhallaANMReader.utils;
+﻿using BrawlhallaANMReader.ANM.Anm;
+using BrawlhallaANMReader.ANM.CSV;
+using BrawlhallaANMReader.ANM.Lang;
+using BrawlhallaANMReader.ANM.utils;
 using Microsoft.Win32;
 
 

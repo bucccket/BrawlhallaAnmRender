@@ -1,6 +1,6 @@
 using System.IO.Compression;
 
-namespace BrawlhallaANMReader.utils
+namespace BrawlhallaANMReader.ANM.utils
 {
     ///<summary>Class <c>Compression</c> provides compression and decompression functionality.</summary>
     internal static class Compression

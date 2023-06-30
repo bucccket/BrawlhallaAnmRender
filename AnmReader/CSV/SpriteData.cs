@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrawlhallaANMReader.CSV
+namespace BrawlhallaANMReader.ANM.CSV
 {
     public class SpriteData
     {

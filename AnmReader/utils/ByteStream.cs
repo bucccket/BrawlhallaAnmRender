@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace BrawlhallaANMReader.utils
+namespace BrawlhallaANMReader.ANM.utils
 {
     ///<summary>Class <c>ByteStream</c> is used to read bytes from a byte array.</summary>
     public class ByteStream

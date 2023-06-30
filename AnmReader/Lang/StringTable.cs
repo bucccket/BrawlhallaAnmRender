@@ -1,8 +1,8 @@
-using BrawlhallaANMReader.utils;
+using BrawlhallaANMReader.ANM.utils;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace BrawlhallaANMReader.Lang
+namespace BrawlhallaANMReader.ANM.Lang
 {
     ///<summary> Class <c>StringTable</c> is used to parse and store the string table from the game's <c>language.x.bin</c> files.</summary>
     public static class StringTable

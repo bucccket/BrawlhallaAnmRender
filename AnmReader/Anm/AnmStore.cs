@@ -1,6 +1,6 @@
-﻿using BrawlhallaANMReader.utils;
+﻿using BrawlhallaANMReader.ANM.utils;
 
-namespace BrawlhallaANMReader.Anm
+namespace BrawlhallaANMReader.ANM.Anm
 {
     ///<summary>Class <c>AnmStore</c> is a collection of animations.</summary>
     public class AnmStore

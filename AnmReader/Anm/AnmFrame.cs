@@ -1,7 +1,7 @@
-﻿using BrawlhallaANMReader.utils;
+﻿using BrawlhallaANMReader.ANM.utils;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.Anm
+namespace BrawlhallaANMReader.ANM.Anm
 {
     ///<summary>Class <c>AnmFrame</c> represents a frame in an animation.</summary>
     public class AnmFrame

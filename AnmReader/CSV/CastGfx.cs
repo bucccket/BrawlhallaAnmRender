@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BrawlhallaANMReader.CSV
+namespace BrawlhallaANMReader.ANM.CSV
 {
     public class CastGfx
     {

@@ -1,8 +1,8 @@
-using BrawlhallaANMReader.AbstractTypes;
-using BrawlhallaANMReader.utils;
+using BrawlhallaANMReader.ANM.AbstractTypes;
+using BrawlhallaANMReader.ANM.utils;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.Lang
+namespace BrawlhallaANMReader.ANM.Lang
 {
     ///<summery>Class <c>LanguageType</c> models a language and its properties.</summery>
     public record LanguageType
