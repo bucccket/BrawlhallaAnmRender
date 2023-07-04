@@ -1,4 +1,4 @@
-﻿using BrawlhallaANMReader.ANM.utils;
+﻿using BrawlhallaANMReader.ANM.Utils;
 using System.Xml;
 using System.Xml.Serialization;
 

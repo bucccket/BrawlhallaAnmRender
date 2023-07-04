@@ -1,5 +1,5 @@
 using BrawlhallaANMReader.ANM.AbstractTypes;
-using BrawlhallaANMReader.ANM.utils;
+using BrawlhallaANMReader.ANM.Utils;
 using System.Xml.Serialization;
 
 namespace BrawlhallaANMReader.ANM.Lang

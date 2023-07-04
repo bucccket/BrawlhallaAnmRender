@@ -1,17 +1,15 @@
 ﻿using BrawlhallaANMReader.ANM.Anm;
 using BrawlhallaANMReader.ANM.CSV;
 using BrawlhallaANMReader.ANM.Lang;
-using BrawlhallaANMReader.ANM.utils;
+using BrawlhallaANMReader.ANM.Utils;
+using BrawlhallaANMReader.Steam;
 using Microsoft.Win32;
+using System.Reflection.Metadata.Ecma335;
 
+Steam steam = new();
 
-String BrawlhallaFolder = @"E:\SteamLibrary\steamapps\common\Brawlhalla";
-String SwzPath = $"{BrawlhallaFolder}\\SWZ\\837857090";
-
-string?[] InstallPath = new string?[] {
-    Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam", "InstallPath", null) as string,
-    Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Valve\Steam", "SteamPath", null) as string
-};
+string? BrawlhallaFolder = steam.FindGameFolder("291550"); //TODO: handle no path found here perhaps?
+string SwzPath = $"{BrawlhallaFolder}\\SWZ\\837857090";
 
 AnmFile thing = new();
 thing.Parse($"{BrawlhallaFolder}\\anims\\Animation_Aang.anm");

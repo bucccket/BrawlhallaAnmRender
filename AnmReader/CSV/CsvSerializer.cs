@@ -1,4 +1,4 @@
-﻿using BrawlhallaANMReader.ANM.utils;
+﻿using BrawlhallaANMReader.ANM.Utils;
 using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
 using System.Reflection;
@@ -81,9 +81,9 @@ namespace BrawlhallaANMReader.ANM.CSV
                         {
                             if (subclass.Length > 2)
                                 throw new NotImplementedException("cannot take higher object depth than 1");
-                            object subinst = prop.GetValue(datum) 
+                            object subinst = prop.GetValue(datum)
                                 ?? throw new InvalidCsvFormatException($"Cannot find object instance of property {subclass[0]}");
-                            PropertyInfo subinfo = prop.PropertyType.GetProperty(subclass[1]) 
+                            PropertyInfo subinfo = prop.PropertyType.GetProperty(subclass[1])
                                 ?? throw new InvalidCsvFormatException($"Cannot find subproperty {subclass[1]}");
 
                             TypeConverter converter = TypeDescriptor.GetConverter(subinfo.PropertyType);
