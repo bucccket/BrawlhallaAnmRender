@@ -83,7 +83,7 @@ namespace BrawlhallaANMReader.ANM.Anm
                 TransformationMatrix.Parse(buffer);
                 Offset.Parse(buffer);
                 BoneMovieClipFrame = buffer.ReadShort();
-                if (!opaque) Opacity = buffer.ReadByte() / (byte)255;
+                if (!opaque) Opacity = buffer.ReadByte() / 255;
                 else Opacity = 1;
                 if (buffer.ReadBool())
                 {
