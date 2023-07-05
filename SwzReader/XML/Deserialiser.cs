@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.Swz.AbstractTypes;
+namespace BrawlhallaANMReader.Swz.XML;
 
 ///<summary>Class <c>Deserialiser</c> is used to deserialise files that contain lists of AbstractTypes.</summary>
 internal static class Deserialiser

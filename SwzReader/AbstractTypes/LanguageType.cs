@@ -2,7 +2,7 @@ using BrawlhallaANMReader.Swz.Utils;
 using BrawlhallaANMReader.Swz.XML;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.Swz.Lang;
+namespace BrawlhallaANMReader.Swz.AbstractTypes;
 
 ///<summery>Class <c>LanguageType</c> models a language and its properties.</summery>
 public record LanguageType

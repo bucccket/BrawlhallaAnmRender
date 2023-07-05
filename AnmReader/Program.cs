@@ -2,7 +2,7 @@
 using BrawlhallaANMReader.Anm.Utils;
 using BrawlhallaANMReader.Steam;
 using BrawlhallaANMReader.Swz;
-using BrawlhallaANMReader.Swz.CSV;
+using BrawlhallaANMReader.Swz.AbstractTypes;
 
 Logger.Log("Launched.");
 

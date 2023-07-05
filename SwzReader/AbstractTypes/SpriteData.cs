@@ -1,4 +1,6 @@
-﻿namespace BrawlhallaANMReader.Swz.CSV;
+﻿using BrawlhallaANMReader.Swz.CSV;
+
+namespace BrawlhallaANMReader.Swz.AbstractTypes;
 public class SpriteData
 {
     public static IList<SpriteData>? ISpriteData { get; set; } = default;

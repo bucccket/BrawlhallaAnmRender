@@ -1,3 +1,4 @@
+using BrawlhallaANMReader.Swz.AbstractTypes;
 using BrawlhallaANMReader.Swz.Utils;
 using System.Text;
 using System.Text.RegularExpressions;
