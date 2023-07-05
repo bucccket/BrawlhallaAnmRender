@@ -1,4 +1,5 @@
 ﻿using BrawlhallaANMReader.ANM.Anm;
+using BrawlhallaANMReader.ANM.CSV;
 using BrawlhallaANMReader.ANM.Utils;
 using BrawlhallaANMReader.Steam;
 
@@ -19,7 +20,6 @@ LanguageType.Parse(xml);
 StringTable.LoadLanguageBins($"{BrawlhallaFolder}\\languages");
 */
 
-/*
 HurtboxType hbt = new();
 hbt.Parse(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
 
@@ -28,6 +28,6 @@ pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
 
 SpriteData spd = new();
 spd.Parse(File.OpenRead($"{SwzPath}\\Game\\spriteData.csv"));
-*/
+
 
 Logger.Log("Done.");
