@@ -8,9 +8,6 @@ Logger.Log("Launched.");
 
 PRNG prng = new(123);
 prng.Random();
-prng.Random();
-prng.Random();
-prng.Random();
 
 Steam steam = new();
 

@@ -1,5 +1,5 @@
-using BrawlhallaANMReader.Swz.AbstractTypes;
 using BrawlhallaANMReader.Swz.Utils;
+using BrawlhallaANMReader.Swz.XML;
 using System.Xml.Serialization;
 
 namespace BrawlhallaANMReader.Swz.Lang;

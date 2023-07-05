@@ -1,4 +1,4 @@
-﻿namespace BrawlhallaANMReader.Swz.CSV
+﻿namespace BrawlhallaANMReader.Swz.AbstractTypes
 {
     public class HitGfx
     {
