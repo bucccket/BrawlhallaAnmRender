@@ -99,16 +99,14 @@ namespace BrawlhallaANMReader.ANM.CSV
                                 ?? throw new InvalidCsvFormatException($"Cannot find subclass property {subclass[1]}");
 
                             TypeConverter converter = TypeDescriptor.GetConverter(subinfo.PropertyType);
-                            object convertedValue = converter.ConvertFrom(val)
-                                ?? throw new InvalidCsvFormatException($"Failed to convert Property {subclass.Last()} with value {val}");
+                            object? convertedValue = converter.ConvertFrom(val);
                             subinfo.SetValue(subinst, convertedValue);
                         }
                         else
                         {
                             TypeConverter converter = TypeDescriptor.GetConverter(prop.PropertyType);
 
-                            object convertedValue = converter.ConvertFrom(val)
-                                ?? throw new InvalidCsvFormatException($"Failed to convert Property {subclass.Last()} with value {val}");
+                            object? convertedValue = converter.ConvertFrom(val);
                             prop.SetValue(datum, convertedValue);
                         }
                     }
