@@ -1,4 +1,4 @@
-﻿using BrawlhallaANMReader.ANM.utils;
+﻿using BrawlhallaANMReader.ANM.Utils;
 using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel;
 using System.Reflection;
@@ -6,15 +6,23 @@ using System.Text;
 
 namespace BrawlhallaANMReader.ANM.CSV
 {
+    /// <summary>
+    /// CsvSerializer serializes classes to .csv files and deserializes textstreams
+    /// </summary>
+    /// <typeparam name="T">Type of class to serialize</typeparam>
     public class CsvSerializer<T> where T : class, new()
     {
-        public bool IgnoreReferenceTypesExceptString { get; set; } = true;
+        /// <value> Indicates, whether the first line of the file contains the file name instead of the column names </value>
         public bool HasHeader { get; set; } = false;
+        /// <value> Delimited for CSV file (e.g. \t for TSV files) </value>
         public string Delimiter { get; set; } = ",";
 
+        /// <value> Type Reflection properties for base type <typeparamref name="T"/> </value>
         private readonly List<PropertyInfo> _properties;
+        /// <value> <see cref="HasHeader">Header</see> line text </value>
         private string? _header;
 
+        /// <summary> Fetches all properties  </summary>
         public CsvSerializer()
         {
             Type type = typeof(T);
@@ -24,12 +32,16 @@ namespace BrawlhallaANMReader.ANM.CSV
                                                 BindingFlags.GetProperty |
                                                 BindingFlags.SetProperty);
 
-            _properties = (from prop in properties
-                           where prop.GetCustomAttribute<CsvIgnoreAttribute>() == null
-                           //orderby prop.Name
-                           select prop).ToList();
+            _properties = properties.Where(prop => prop.GetCustomAttribute<CsvIgnoreAttribute>() == null).ToList();
         }
 
+        /// <summary>
+        /// Deserializes CSV file stream
+        /// </summary>
+        /// <param name="stream">File stream to CSV file</param>
+        /// <returns>List of instances of generic type</returns>
+        /// <exception cref="InvalidCsvFormatException">Malformed CSV input file</exception>
+        /// <exception cref="NotImplementedException">Recursively nested subclasses are yet to be implemented</exception>
         public IList<T> Deserialize(Stream stream)
         {
             string[]? collumns;
@@ -50,7 +62,7 @@ namespace BrawlhallaANMReader.ANM.CSV
                 if (collumns is null)
                     throw new InvalidCsvFormatException(@"Failed to read collumns");
             }
-            catch (Exception ex)
+            catch
             {
                 Logger.Error("The CSV File is Invalid. See Inner Exception for more inoformation.");
                 throw;
@@ -81,28 +93,21 @@ namespace BrawlhallaANMReader.ANM.CSV
                         {
                             if (subclass.Length > 2)
                                 throw new NotImplementedException("cannot take higher object depth than 1");
-                            object subinst = prop.GetValue(datum) 
-                                ?? throw new InvalidCsvFormatException($"Cannot find object instance of property {subclass[0]}");
-                            PropertyInfo subinfo = prop.PropertyType.GetProperty(subclass[1]) 
-                                ?? throw new InvalidCsvFormatException($"Cannot find subproperty {subclass[1]}");
+                            object subinst = prop.GetValue(datum)
+                                ?? throw new InvalidCsvFormatException($"Cannot find class instance of property {subclass[0]}");
+                            PropertyInfo subinfo = prop.PropertyType.GetProperty(subclass[1])
+                                ?? throw new InvalidCsvFormatException($"Cannot find subclass property {subclass[1]}");
 
                             TypeConverter converter = TypeDescriptor.GetConverter(subinfo.PropertyType);
                             object? convertedValue = converter.ConvertFrom(val);
-                            subinfo.SetValue(subinst, convertedValue, null);
+                            subinfo.SetValue(subinst, convertedValue);
                         }
                         else
                         {
                             TypeConverter converter = TypeDescriptor.GetConverter(prop.PropertyType);
-                            try
-                            {
-                                object? convertedValue = converter.ConvertFrom(val);
-                                prop.SetValue(datum, convertedValue);
-                            }
-                            catch (Exception ex)
-                            {
-                                Logger.Error(ex.Message);
-                                throw;
-                            }
+
+                            object? convertedValue = converter.ConvertFrom(val);
+                            prop.SetValue(datum, convertedValue);
                         }
                     }
                 }
@@ -111,6 +116,12 @@ namespace BrawlhallaANMReader.ANM.CSV
             return data;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="data"></param>
+        /// <exception cref="NotImplementedException">Serialization is not done!!</exception>
         public void Serialize(Stream stream, IList<T> data)
         {
             throw new NotImplementedException();
@@ -127,7 +138,7 @@ namespace BrawlhallaANMReader.ANM.CSV
 
             foreach (T item in data)
             {
-                values.Clear(); //🍆
+                values.Clear();
                 foreach (PropertyInfo prop in _properties)
                 {
                     String value = prop.GetValue(item)?.ToString() ?? "";

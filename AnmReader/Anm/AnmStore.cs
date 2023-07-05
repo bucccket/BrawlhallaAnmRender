@@ -1,4 +1,4 @@
-﻿using BrawlhallaANMReader.ANM.utils;
+﻿using BrawlhallaANMReader.ANM.Utils;
 
 namespace BrawlhallaANMReader.ANM.Anm
 {

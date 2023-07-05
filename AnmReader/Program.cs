@@ -1,35 +1,33 @@
 ﻿using BrawlhallaANMReader.ANM.Anm;
 using BrawlhallaANMReader.ANM.CSV;
-using BrawlhallaANMReader.ANM.Lang;
-using BrawlhallaANMReader.ANM.utils;
-using Microsoft.Win32;
+using BrawlhallaANMReader.ANM.Utils;
+using BrawlhallaANMReader.Steam;
 
+Logger.Log("Launched.");
 
-String BrawlhallaFolder = @"E:\SteamLibrary\steamapps\common\Brawlhalla";
-String SwzPath = $"{BrawlhallaFolder}\\SWZ\\837857090";
+Steam steam = new();
 
-string?[] InstallPath = new string?[] {
-    Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam", "InstallPath", null) as string,
-    Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\Valve\Steam", "SteamPath", null) as string
-};
+string? BrawlhallaFolder = steam.FindGameFolder("291550"); //TODO: handle no path found here perhaps?
+string SwzPath = $"{BrawlhallaFolder}\\SWZ\\837857090";
 
 AnmFile thing = new();
 thing.Parse($"{BrawlhallaFolder}\\anims\\Animation_Aang.anm");
 thing.ToXml(@".\out.xml");
 
+/*
 string xml = File.ReadAllText($"{SwzPath}\\Engine\\LanguageTypes.xml");
 LanguageType.Parse(xml);
-
-// foreach (LanguageType lang in LanguageType.LanguageTypes) Logger.Debug(lang.ToString());
-
 StringTable.LoadLanguageBins($"{BrawlhallaFolder}\\languages");
-Logger.Log(StringTable.GetString("CostumeType_MuninBeach_DisplayName", LanguageType.GetLanguage(1))[..4]);
+*/
 
 HurtboxType hbt = new();
-//hbt.Parse(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
+hbt.Parse(File.OpenRead($"{SwzPath}\\Game\\hurtboxTypes.csv"));
 
 PowerType pwt = new();
-//pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
+pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
 
 SpriteData spd = new();
 spd.Parse(File.OpenRead($"{SwzPath}\\Game\\spriteData.csv"));
+
+
+Logger.Log("Done.");
