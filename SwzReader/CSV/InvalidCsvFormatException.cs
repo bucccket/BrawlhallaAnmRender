@@ -1,4 +1,4 @@
-﻿namespace BrawlhallaANMReader.ANM.CSV
+﻿namespace BrawlhallaANMReader.Swz.CSV
 {
     internal class InvalidCsvFormatException : Exception
     {

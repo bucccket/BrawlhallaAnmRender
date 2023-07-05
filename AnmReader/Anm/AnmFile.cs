@@ -1,7 +1,7 @@
-﻿using BrawlhallaANMReader.ANM.Utils;
+﻿using BrawlhallaANMReader.Anm.Utils;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.ANM.Anm
+namespace BrawlhallaANMReader.Anm.Anm
 {
     ///<summary>Class <c>AnmFile</c> is used to read ANM files.</summary>
     ///<remarks>This is only compatible with animation files from patch 7.03 onwards (Battle Pass Season 7).</remarks>

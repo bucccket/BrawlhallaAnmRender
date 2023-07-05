@@ -1,9 +1,16 @@
-﻿using BrawlhallaANMReader.ANM.Anm;
-using BrawlhallaANMReader.ANM.CSV;
-using BrawlhallaANMReader.ANM.Utils;
+﻿using BrawlhallaANMReader.Anm.Anm;
+using BrawlhallaANMReader.Anm.Utils;
 using BrawlhallaANMReader.Steam;
+using BrawlhallaANMReader.Swz;
+using BrawlhallaANMReader.Swz.CSV;
 
 Logger.Log("Launched.");
+
+PRNG prng = new(123);
+prng.Random();
+prng.Random();
+prng.Random();
+prng.Random();
 
 Steam steam = new();
 
@@ -28,6 +35,5 @@ pwt.Parse(File.OpenRead($"{SwzPath}\\Game\\powerTypes.csv"));
 
 SpriteData spd = new();
 spd.Parse(File.OpenRead($"{SwzPath}\\Game\\spriteData.csv"));
-
 
 Logger.Log("Done.");

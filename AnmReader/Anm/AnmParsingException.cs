@@ -1,4 +1,4 @@
-namespace BrawlhallaANMReader.ANM.Anm
+namespace BrawlhallaANMReader.Anm.Anm
 {
     ///<summary>Exception <c>AnmParsingException</c> is thrown when an error occurs while parsing an ANM file.</summary>
     public class AnmParsingException : Exception

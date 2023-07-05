@@ -1,4 +1,4 @@
-namespace BrawlhallaANMReader.Anm.Utils;
+namespace BrawlhallaANMReader.Swz.Utils;
 
 ///<summary>Class <c>Logger</c> is used to log messages to the console.</summary>
 ///<remarks>Logging to the standard output resets the console colours after logging.</remarks>

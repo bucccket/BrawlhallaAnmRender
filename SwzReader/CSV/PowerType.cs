@@ -1,4 +1,4 @@
-﻿namespace BrawlhallaANMReader.ANM.CSV
+﻿namespace BrawlhallaANMReader.Swz.CSV
 {
     [Serializable()]
     public class PowerType

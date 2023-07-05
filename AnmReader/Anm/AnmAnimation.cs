@@ -1,7 +1,7 @@
-﻿using BrawlhallaANMReader.ANM.Utils;
+﻿using BrawlhallaANMReader.Anm.Utils;
 using System.Xml.Serialization;
 
-namespace BrawlhallaANMReader.ANM.Anm
+namespace BrawlhallaANMReader.Anm.Anm
 {
     ///<summary>Class <c>AnmAnimation</c> represents an animation.</summary>
     [Serializable()]
