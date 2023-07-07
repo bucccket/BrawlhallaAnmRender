@@ -12,12 +12,11 @@ public class SwzFile
 
     public static void Decrypt(Stream stream)
     {
-        //TODO: implement dedicated read func from stream :)
-        //stream.ReadByte();
         PRNG prng;
         List<string> files = new();
         SetData(stream, out prng);
 
+        //TODO: do something with the data here!?!?
         while (stream.Position != stream.Length)
         {
             files.Add(GetData(stream, prng));
