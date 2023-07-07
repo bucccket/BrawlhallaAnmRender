@@ -3,10 +3,10 @@
 namespace BrawlhallaANMReader.Swz.AbstractTypes
 {
     [Serializable()]
-    public class PowerType
+    public record PowerType : IAbstractType
     {
         [CsvIgnore]
-        public static IList<PowerType>? PowerTypes { get; set; } = default;
+        public static List<PowerType> PowerTypes { get; set; } = new();
         public string PowerName { get; set; } = default!;
         public string PowerID { get; set; } = default!;
         public string OrderID { get; set; } = default!;
@@ -165,7 +165,7 @@ namespace BrawlhallaANMReader.Swz.AbstractTypes
         public string HitReactAnim { get; set; } = default!;
         public HitGfx HitGfx { get; set; } = new();
 
-        private readonly CsvSerializer<PowerType> _csv = new()
+        private static readonly CsvSerializer<PowerType> _csv = new()
         {
             HasHeader = true
         };
@@ -174,11 +174,11 @@ namespace BrawlhallaANMReader.Swz.AbstractTypes
         {
 
         }
-        public void Parse(Stream stream)
+        public static void Parse(Stream stream)
         {
-            PowerTypes = _csv.Deserialize(stream);
+            PowerTypes.AddRange(_csv.Deserialize(stream));
         }
-        public void Write(FileStream stream)
+        public static void Write(FileStream stream)
         {
             _csv.Serialize(stream, PowerTypes ?? throw new NullReferenceException());
         }

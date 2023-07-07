@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace BrawlhallaANMReader.Swz.XML;
 
 ///<summary>Class <c>Deserialiser</c> is used to deserialise files that contain lists of AbstractTypes.</summary>
-internal static class Deserialiser
+internal static class XmlDeserialiser
 {
     ///<summary>Deserialises an XML file.</summary>
     ///<typeparam name="T">The type of the object to deserialise.</typeparam>

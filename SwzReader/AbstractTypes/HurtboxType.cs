@@ -2,10 +2,10 @@
 
 namespace BrawlhallaANMReader.Swz.AbstractTypes
 {
-    public class HurtboxType
+    public record HurtboxType : IAbstractType
     {
         [CsvIgnore]
-        public static IList<HurtboxType>? HurtboxTypes { get; set; } = default;
+        public static List<HurtboxType> HurtboxTypes { get; set; } = new();
         public string HurtboxName { get; set; } = default!;
         public int HurtboxID { get; set; } = default!;
         public string? AnimClass { get; set; }
@@ -14,14 +14,14 @@ namespace BrawlhallaANMReader.Swz.AbstractTypes
         public string Height { get; set; } = default!;
         [CsvIgnore]
         public List<string> OffsetXValues { get; } = new();
-        public string? OffsetX { get => string.Join(",", OffsetXValues); set => OffsetXValues.AddRange(value.Split(',')); }
+        public string? OffsetX { get => string.Join(",", OffsetXValues); set => OffsetXValues.AddRange(value!.Split(',')); }
         [CsvIgnore]
         public List<string> OffsetYValues { get; } = new();
-        public string? OffsetY { get => string.Join(",", OffsetYValues); set => OffsetYValues.AddRange(value.Split(',')); }
+        public string? OffsetY { get => string.Join(",", OffsetYValues); set => OffsetYValues.AddRange(value!.Split(',')); }
         public string? Frames { get; set; }
         public bool? IgnoreHeightValidation { get; set; }
 
-        private readonly CsvSerializer<HurtboxType> _csv = new()
+        private static readonly CsvSerializer<HurtboxType> _csv = new()
         {
             HasHeader = true
         };
@@ -31,11 +31,11 @@ namespace BrawlhallaANMReader.Swz.AbstractTypes
 
         }
 
-        public void Parse(Stream stream)
+        public static void Parse(Stream stream)
         {
-            HurtboxTypes = _csv.Deserialize(stream);
+            HurtboxTypes.AddRange(_csv.Deserialize(stream));
         }
-        public void Write(FileStream stream)
+        public static void Write(FileStream stream)
         {
             _csv.Serialize(stream, HurtboxTypes ?? throw new NullReferenceException());
         }

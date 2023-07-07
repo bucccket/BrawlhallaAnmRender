@@ -17,7 +17,7 @@ public class PRNG
         }
     }
 
-    public uint Random()
+    public uint NextRandom()
     {
         uint randomOffset = _state[16];
         uint shiftOne = _state[(randomOffset - 3) & 0xF];

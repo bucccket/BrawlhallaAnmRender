@@ -1,9 +1,9 @@
 ﻿using BrawlhallaANMReader.Swz.CSV;
 
 namespace BrawlhallaANMReader.Swz.AbstractTypes;
-public class SpriteData
+public record SpriteData : IAbstractType
 {
-    public static IList<SpriteData>? ISpriteData { get; set; } = default;
+    public static List<SpriteData> ISpriteData { get; set; } = new();
     public string SetName { get; set; } = default!;
     public string BoneName { get; set; } = default!;
     public string File { get; set; } = default!;
@@ -14,7 +14,7 @@ public class SpriteData
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
     public string yOffset { get; set; } = default!;
 
-    private readonly CsvSerializer<SpriteData> _csv = new()
+    private static readonly CsvSerializer<SpriteData> _csv = new()
     {
         HasHeader = true
     };
@@ -24,11 +24,11 @@ public class SpriteData
 
     }
 
-    public void Parse(Stream stream)
+    public static void Parse(Stream stream)
     {
-        ISpriteData = _csv.Deserialize(stream);
+        ISpriteData.AddRange(_csv.Deserialize(stream));
     }
-    public void Write(FileStream stream)
+    public static void Write(FileStream stream)
     {
         _csv.Serialize(stream, ISpriteData ?? throw new NullReferenceException());
     }

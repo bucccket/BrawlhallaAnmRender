@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace BrawlhallaANMReader.Swz.AbstractTypes;
 
 ///<summery>Class <c>LanguageType</c> models a language and its properties.</summery>
-public record LanguageType
+public record LanguageType : IAbstractType
 {
     ///<value>The singleton list that contains all languages.</value>
     [XmlElement("LanguageTypes")]
@@ -66,11 +66,12 @@ public record LanguageType
 
     ///<summary>Loading a language XML file.</summary>
     ///<param name="xml">The XML string to parse.</param>
-    public static void Parse(string xml)
+    public static void Parse(Stream stream)
     {
+        string xml = new StreamReader(stream).ReadToEnd();
         try
         {
-            List<LanguageType> langs = Deserialiser.XmlListDeserialise<LanguageType>(xml, "LanguageTypes", "LanguageType", "<LanguageID>0</LanguageID>", DataAcceptancePolicy.DeclineWholeFileOnInvalid);
+            List<LanguageType> langs = XmlDeserialiser.XmlListDeserialise<LanguageType>(xml, "LanguageTypes", "LanguageType", "<LanguageID>0</LanguageID>", DataAcceptancePolicy.DeclineWholeFileOnInvalid);
             LanguageTypes.Clear();
             LanguageTypes.AddRange(langs);
         }
