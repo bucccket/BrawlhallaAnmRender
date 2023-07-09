@@ -7,4 +7,8 @@
 		<RootNamespace>BrawlhallaANMReader.Swz</RootNamespace>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Folder Include="XSD\" />
+	</ItemGroup>
+
 </Project>

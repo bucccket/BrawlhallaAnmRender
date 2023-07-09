@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="Dynamic.xsd"
+	elementFormDefault="qualified"
+	xmlns="Dynamic.xsd"
+	xmlns:dynns="Dynamic.xsd"
+	xmlns:common="CommonTypes.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import namespace="CommonTypes.xsd" schemaLocation="../CommonTypes.xsd"/>
+
+	<!-- LevelDesc -->
+	<xs:element name="LevelDesc" type="dynns:LevelDesc"/>
+	<xs:complexType name="LevelDesc">
+		<xs:sequence>
+			<xs:element ref="dynns:CameraBounds" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:SpawnBotBounds" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Background" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Platform" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:MovingPlatform" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Goal" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:HardCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:SoftCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:DynamicCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:BouncyHardCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:NoSlideCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Respawn" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:DynamicRespawn" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:ItemSpawn" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:DynamicItemSpawn" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:ItemInitSpawn" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="dynns:NavNode" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:DynamicNavNode" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:WaveData" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:LevelSound" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:LevelAnim" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:ItemSet" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:BouncyNoSlideCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:TeamScoreboard" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:BouncySoftCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:AnimatedBackground" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:GameModeHardCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:PressurePlateCollision" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- CameraBounds -->
+	<xs:element name="CameraBounds" type="dynns:CameraBounds" nillable="false"/>
+	<xs:complexType name="CameraBounds">
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- SpawnBotBounds -->
+	<xs:element name="SpawnBotBounds" type="dynns:SpawnBotBounds" nillable="false"/>
+	<xs:complexType name="SpawnBotBounds">
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- Background -->
+	<xs:element name="Background" type="dynns:Background" nillable="false"/>
+	<xs:complexType name="Background">
+		<xs:attribute name="AssetName" type="xs:string" use="optional"/>
+		<xs:attributeGroup ref="common:Dimensions"/>
+		<xs:attribute name="HasSkulls" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+
+	<!-- Asset -->
+	<xs:element name="Asset" type="dynns:Asset" nillable="false"/>
+	<xs:complexType name="Asset">
+		<xs:attribute name="AssetName" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- Platform -->
+	<xs:element name="Platform" type="dynns:Platform" nillable="false"/>
+	<xs:complexType name="Platform">
+		<xs:sequence>
+			<xs:element ref="dynns:Asset" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Platform" type="dynns:Platform" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="InstanceName" type="xs:string" use="required"/>
+		<xs:attribute name="Scale" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+		<xs:attributeGroup ref="common:Scale"/>
+		<xs:attribute name="Rotation" type="xs:string" use="required"/>
+		<xs:attribute name="Theme" type="xs:string" use="required"/>
+		<xs:attribute name="ScoringType" type="xs:string" use="required"/>
+		<xs:attribute name="AssetName" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Dimensions"/>
+	</xs:complexType>
+
+	<!-- Goal -->
+	<xs:element name="Goal" type="dynns:Goal" nillable="false"/>
+	<xs:complexType name="Goal">
+		<xs:attribute name="Team" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- HardCollision -->
+	<xs:element name="HardCollision" type="dynns:HardCollision" nillable="false"/>
+	<xs:complexType name="HardCollision">
+		<xs:attribute name="TauntEvent" type="xs:string" use="optional"/>
+		<xs:attribute name="Team" type="xs:string" use="optional"/>
+		<xs:attribute name="AnchorX" type="xs:string" use="optional"/>
+		<xs:attribute name="AnchorY" type="xs:string" use="optional"/>
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- SoftCollision -->
+	<xs:element name="SoftCollision" type="dynns:SoftCollision" nillable="false"/>
+	<xs:complexType name="SoftCollision">
+		<xs:attribute name="Team" type="xs:string" use="optional"/>
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- NoSlideCollision -->
+	<xs:element name="NoSlideCollision" type="dynns:NoSlideCollision" nillable="false"/>
+	<xs:complexType name="NoSlideCollision">
+		<xs:attribute name="Team" type="xs:string" use="optional"/>
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- BouncyHardCollision -->
+	<xs:element name="BouncyHardCollision" type="dynns:BouncyHardCollision" nillable="false"/>
+	<xs:complexType name="BouncyHardCollision">
+		<xs:attribute name="NormalX" type="xs:string" use="optional"/>
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- Respawn -->
+	<xs:element name="Respawn" type="dynns:Respawn" nillable="false"/>
+	<xs:complexType name="Respawn">
+		<xs:attributeGroup ref="common:Point"/>
+		<xs:attribute name="ExpandedInit" type="xs:string" use="optional"/>
+		<xs:attribute name="Initial" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	<!-- ItemSpawn -->
+	<xs:element name="ItemSpawn" type="dynns:ItemSpawn" nillable="false"/>
+	<xs:complexType name="ItemSpawn">
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- ItemInitSpawn -->
+	<xs:element name="ItemInitSpawn" type="dynns:ItemInitSpawn" nillable="false"/>
+	<xs:complexType name="ItemInitSpawn">
+		<xs:attributeGroup ref="common:Bounds"/>
+	</xs:complexType>
+
+	<!-- NavNode -->
+	<xs:element name="NavNode" type="dynns:NavNode" nillable="false"/>
+	<xs:complexType name="NavNode">
+		<xs:attribute name="NavID" type="xs:string" use="required"/>
+		<xs:attribute name="Path" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- Point -->
+	<xs:element name="Point" type="dynns:Point" nillable="false"/>
+	<xs:complexType name="Point">
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- CustomPath -->
+	<xs:element name="CustomPath" type="dynns:CustomPath" nillable="false"/>
+	<xs:complexType name="CustomPath">
+		<xs:sequence>
+			<xs:element ref="dynns:Point" minOccurs="2" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Group -->
+	<xs:element name="Group" type="dynns:Group" nillable="false"/>
+	<xs:complexType name="Group">
+		<xs:attribute name="Count" type="xs:string" use="optional"/>
+		<xs:attribute name="Count3" type="xs:string" use="optional"/>
+		<xs:attribute name="Count4" type="xs:string" use="optional"/>
+		<xs:attribute name="Delay" type="xs:string" use="optional"/>
+		<xs:attribute name="Delay3" type="xs:string" use="optional"/>
+		<xs:attribute name="Delay4" type="xs:string" use="optional"/>
+		<xs:attribute name="Stagger" type="xs:string" use="optional"/>
+		<xs:attribute name="Stagger3" type="xs:string" use="optional"/>
+		<xs:attribute name="Stagger4" type="xs:string" use="optional"/>
+		<xs:attribute name="Dir" type="xs:string" use="required"/>
+		<xs:attribute name="Path" type="xs:string" use="required"/>
+		<xs:attribute name="SharedPath" type="xs:string" use="optional"/>
+		<xs:attribute name="Shared" type="xs:string" use="optional"/>
+		<xs:attribute name="Behavior" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	<!-- WaveData -->
+	<xs:element name="WaveData" type="dynns:WaveData" nillable="false"/>
+	<xs:complexType name="WaveData">
+		<xs:sequence>
+			<xs:element ref="dynns:CustomPath" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Group" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- KeyFrame -->
+	<xs:element name="KeyFrame" type="dynns:KeyFrame" nillable="false"/>
+	<xs:complexType name="KeyFrame">
+		<xs:attribute name="FrameNum" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- Animation -->
+	<xs:element name="Animation" type="dynns:Animation" nillable="false"/>
+	<xs:complexType name="Animation">
+		<xs:sequence>
+			<xs:element ref="dynns:KeyFrame" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="NumFrames" type="xs:string" use="required"/>
+		<xs:attribute name="SlowMult" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<!-- MovingPlatform -->
+	<xs:element name="MovingPlatform" type="dynns:MovingPlatform" nillable="false"/>
+	<xs:complexType name="MovingPlatform">
+		<xs:sequence>
+			<xs:element ref="dynns:Animation" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="dynns:Platform" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- PressurePlateCollision -->
+	<xs:element name="PressurePlateCollision" type="dynns:PressurePlateCollision" nillable="false"/>
+	<xs:complexType name="PressurePlateCollision">
+		<xs:attribute name="AnimOffsetX" type="xs:string" use="required"/>
+		<xs:attribute name="AnimOffsetY" type="xs:string" use="required"/>
+		<xs:attribute name="AssetName" type="xs:string" use="required"/>
+		<xs:attribute name="Cooldown" type="xs:string" use="required"/>
+		<xs:attribute name="FaceLeft" type="xs:string" use="required"/>
+		<xs:attribute name="FireOffsetX" type="xs:string" use="required"/>
+		<xs:attribute name="FireOffsetY" type="xs:string" use="required"/>
+		<xs:attribute name="TrapPowers" type="xs:string" use="required"/>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attribute name="AnimRotation" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- DynamicCollision -->
+	<xs:element name="DynamicCollision" type="dynns:DynamicCollision" nillable="false"/>
+	<xs:complexType name="DynamicCollision">
+		<xs:sequence>
+			<xs:element ref="dynns:HardCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:SoftCollision" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:PressurePlateCollision" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- DynamicRespawn -->
+	<xs:element name="DynamicRespawn" type="dynns:DynamicRespawn" nillable="false"/>
+	<xs:complexType name="DynamicRespawn">
+		<xs:sequence>
+			<xs:element ref="dynns:Respawn" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- DynamicItemSpawn -->
+	<xs:element name="DynamicItemSpawn" type="dynns:DynamicItemSpawn" nillable="false"/>
+	<xs:complexType name="DynamicItemSpawn">
+		<xs:sequence>
+			<xs:element ref="dynns:ItemSpawn" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- DynamicNavNode -->
+	<xs:element name="DynamicNavNode" type="dynns:DynamicNavNode" nillable="false"/>
+	<xs:complexType name="DynamicNavNode">
+		<xs:sequence>
+			<xs:element ref="dynns:NavNode" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="PlatID" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- LevelSound -->
+	<xs:element name="LevelSound" type="dynns:LevelSound" nillable="false"/>
+	<xs:complexType name="LevelSound">
+		<xs:attribute name="SoundEventName" type="xs:string" use="required"/>
+		<xs:attribute name="SoundName" type="xs:string" use="required"/>
+		<xs:attribute name="Interval" type="xs:string" use="required"/>
+		<xs:attribute name="Delay" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<!-- AnimatedBackground -->
+	<xs:element name="AnimatedBackground" type="dynns:AnimatedBackground" nillable="false"/>
+	<xs:complexType name="AnimatedBackground">
+		<xs:sequence>
+			<xs:element ref="dynns:Gfx" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Position" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Skew" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Scale" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:Rotation" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:FrameOffset" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Gfx -->
+	<xs:element name="Gfx" type="dynns:Gfx" nillable="false"/>
+	<xs:complexType name="Gfx">
+		<xs:sequence>
+			<xs:element ref="dynns:AnimFile" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element ref="dynns:AnimClass" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- AnimFile -->
+	<xs:element name="AnimFile" type="dynns:AnimFile" nillable="false"/>
+	<xs:complexType name="AnimFile"/>
+
+	<!-- AnimClass -->
+	<xs:element name="AnimClass" type="dynns:AnimClass" nillable="false"/>
+	<xs:complexType name="AnimClass"/>
+
+	<!-- Position -->
+	<xs:element name="Position" type="dynns:Position" nillable="false"/>
+	<xs:complexType name="Position"/>
+
+	<!-- Skew -->
+	<xs:element name="Skew" type="dynns:Skew" nillable="false"/>
+	<xs:complexType name="Skew"/>
+
+	<!-- Scale -->
+	<xs:element name="Scale" type="dynns:Scale" nillable="false"/>
+	<xs:complexType name="Scale"/>
+
+	<!-- Rotation -->
+	<xs:element name="Rotation" type="dynns:Rotation" nillable="false"/>
+	<xs:complexType name="Rotation"/>
+
+	<!-- FrameOffset -->
+	<xs:element name="FrameOffset" type="dynns:FrameOffset" nillable="false"/>
+	<xs:complexType name="FrameOffset"/>
+
+	<!-- LevelAnim -->
+	<xs:element name="LevelAnim" type="dynns:LevelAnim" nillable="false"/>
+	<xs:complexType name="LevelAnim">
+		<xs:attribute name="InstanceName" type="xs:string" use="required"/>
+		<xs:attribute name="AssetName" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- ItemSet -->
+	<xs:element name="ItemSet" type="dynns:ItemSet" nillable="false"/>
+	<xs:complexType name="ItemSet">
+		<xs:attributeGroup ref="common:Point"/>
+	</xs:complexType>
+
+	<!-- BouncyNoSlideCollision -->
+	<xs:element name="BouncyNoSlideCollision" type="dynns:BouncyNoSlideCollision" nillable="false"/>
+	<xs:complexType name="BouncyNoSlideCollision">
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- TeamScoreboard -->
+	<xs:element name="TeamScoreboard" type="dynns:TeamScoreboard" nillable="false"/>
+	<xs:complexType name="TeamScoreboard">
+		<xs:attribute name="RedTeamX" type="xs:string" use="required"/>
+		<xs:attribute name="BlueTeamX" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="common:Point"/>
+		<xs:attribute name="DoubleDigitsOnesX" type="xs:string" use="required"/>
+		<xs:attribute name="DoubleDigitsTensX" type="xs:string" use="required"/>
+		<xs:attribute name="DoubleDigitsY" type="xs:string" use="required"/>
+		<xs:attribute name="DoubleDigitsScale" type="xs:string" use="required"/>
+		<xs:attribute name="RedDigitFont" type="xs:string" use="required"/>
+		<xs:attribute name="BlueDigitFont" type="xs:string" use="required"/>
+	</xs:complexType>
+
+	<!-- BouncySoftCollision -->
+	<xs:element name="BouncySoftCollision" type="dynns:BouncySoftCollision" nillable="false"/>
+	<xs:complexType name="BouncySoftCollision">
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+	<!-- GameModeHardCollision -->
+	<xs:element name="GameModeHardCollision" type="dynns:GameModeHardCollision" nillable="false"/>
+	<xs:complexType name="GameModeHardCollision">
+		<xs:attributeGroup ref="common:Collision"/>
+	</xs:complexType>
+
+</xs:schema>

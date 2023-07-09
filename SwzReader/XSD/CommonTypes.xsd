@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="CommonTypes.xsd"
+    elementFormDefault="qualified"
+    xmlns="CommonTypes.xsd"
+    xmlns:tyns="CommonTypes.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+	<xs:attributeGroup name="Bounds">
+		<xs:attribute name="H" type="xs:string" use="optional"/>
+		<xs:attribute name="W" type="xs:string" use="optional"/>
+		<xs:attribute name="X" type="xs:string" use="optional"/>
+		<xs:attribute name="Y" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="Collision">
+		<xs:attribute name="X" type="xs:string" use="optional"/>
+		<xs:attribute name="X1" type="xs:string" use="optional"/>
+		<xs:attribute name="X2" type="xs:string" use="optional"/>
+		<xs:attribute name="Y" type="xs:string" use="optional"/>
+		<xs:attribute name="Y1" type="xs:string" use="optional"/>
+		<xs:attribute name="Y2" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="Point">
+		<xs:attribute name="X" type="xs:string" use="required"/>
+		<xs:attribute name="Y" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="Dimensions">
+		<xs:attribute name="H" type="xs:string" use="required"/>
+		<xs:attribute name="W" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="Scale">
+		<xs:attribute name="ScaleX" type="xs:string" use="required"/>
+		<xs:attribute name="ScaleY" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+
+</xs:schema>
