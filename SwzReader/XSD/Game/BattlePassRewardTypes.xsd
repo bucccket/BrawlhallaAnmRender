@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="BattlePassRewardTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="BattlePassRewardType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BattlePassRewardType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RewardID"/>
+        <xs:element ref="Type"/>
+        <xs:element minOccurs="0" ref="Item"/>
+        <xs:element minOccurs="0" ref="SkipOnClassicCatchUp"/>
+        <xs:element minOccurs="0" ref="OnlyOnClassicCatchUp"/>
+        <xs:element minOccurs="0" ref="Amount"/>
+        <xs:element minOccurs="0" ref="Rarity"/>
+        <xs:element minOccurs="0" ref="IconType"/>
+        <xs:element minOccurs="0" ref="IconName"/>
+        <xs:element minOccurs="0" ref="IconStatesName"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ViewOffsetX"/>
+          <xs:element ref="ViewOffsetY"/>
+          <xs:element ref="ViewScale"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="ViewerIcon"/>
+        <xs:element minOccurs="0" ref="IsCompletionistBonus"/>
+      </xs:sequence>
+      <xs:attribute name="IsFree" use="required" type="xs:boolean"/>
+      <xs:attribute name="Tier" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RewardID" type="xs:integer"/>
+  <xs:element name="Type" type="xs:NMTOKEN"/>
+  <xs:element name="Item" type="xs:NMTOKEN"/>
+  <xs:element name="SkipOnClassicCatchUp" type="xs:boolean"/>
+  <xs:element name="OnlyOnClassicCatchUp" type="xs:boolean"/>
+  <xs:element name="Amount" type="xs:integer"/>
+  <xs:element name="Rarity" type="xs:NMTOKEN"/>
+  <xs:element name="IconType" type="xs:NMTOKEN"/>
+  <xs:element name="IconName" type="xs:NMTOKEN"/>
+  <xs:element name="IconStatesName" type="xs:NMTOKEN"/>
+  <xs:element name="ViewOffsetX" type="xs:integer"/>
+  <xs:element name="ViewOffsetY" type="xs:integer"/>
+  <xs:element name="ViewScale" type="xs:integer"/>
+  <xs:element name="ViewerIcon" type="xs:NMTOKEN"/>
+  <xs:element name="IsCompletionistBonus" type="xs:boolean"/>
+</xs:schema>

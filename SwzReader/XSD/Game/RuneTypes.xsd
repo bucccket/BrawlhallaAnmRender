@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="RuneTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="RuneType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RuneType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="HeroName"/>
+        <xs:element ref="RuneIndex"/>
+        <xs:element ref="Strength"/>
+        <xs:element ref="Dexterity"/>
+        <xs:element ref="Weight"/>
+        <xs:element ref="Speed"/>
+        <xs:element ref="IconName"/>
+        <xs:element ref="IconFileName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HeroName" type="xs:NCName"/>
+  <xs:element name="RuneIndex" type="xs:integer"/>
+  <xs:element name="Strength" type="xs:integer"/>
+  <xs:element name="Dexterity" type="xs:integer"/>
+  <xs:element name="Weight" type="xs:integer"/>
+  <xs:element name="Speed" type="xs:integer"/>
+  <xs:element name="IconName" type="xs:NCName"/>
+  <xs:element name="IconFileName" type="xs:NCName"/>
+</xs:schema>

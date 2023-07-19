@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="PodiumTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="PodiumType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PodiumType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PodiumID"/>
+        <xs:element ref="DisplayOrderID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="Enabled"/>
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="AnimRig"/>
+        <xs:element minOccurs="0" ref="AnimCustomArt"/>
+        <xs:element ref="CustomArtTeamRed"/>
+        <xs:element ref="CustomArtTeamBlue"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="LockInForegroundSFX"/>
+          <xs:element ref="CustomHeroPoseIdle"/>
+          <xs:element ref="CustomHeroPoseSelected"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="OffsetStore"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SoundNameReady"/>
+          <xs:element ref="SoundEventReady"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="SoundNameLockIn"/>
+        <xs:element minOccurs="0" ref="SoundEventLockIn"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SoundNameVictory"/>
+          <xs:element ref="SoundEventVictory"/>
+          <xs:element ref="SoundNameDefeat"/>
+          <xs:element ref="SoundEventDefeat"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="UpgradesTo"/>
+      </xs:sequence>
+      <xs:attribute name="PodiumName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PodiumID" type="xs:integer"/>
+  <xs:element name="DisplayOrderID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="Enabled" type="xs:boolean"/>
+  <xs:element name="AnimFile" type="xs:NMTOKEN"/>
+  <xs:element name="AnimRig" type="xs:NMTOKEN"/>
+  <xs:element name="AnimCustomArt" type="xs:NMTOKEN"/>
+  <xs:element name="CustomArtTeamRed" type="xs:NMTOKEN"/>
+  <xs:element name="CustomArtTeamBlue" type="xs:NMTOKEN"/>
+  <xs:element name="LockInForegroundSFX" type="xs:NMTOKEN"/>
+  <xs:element name="CustomHeroPoseIdle" type="xs:NMTOKEN"/>
+  <xs:element name="CustomHeroPoseSelected" type="xs:NMTOKEN"/>
+  <xs:element name="OffsetStore" type="xs:string"/>
+  <xs:element name="SoundNameReady" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventReady" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameLockIn" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventLockIn" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameVictory" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventVictory" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameDefeat" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventDefeat" type="xs:NMTOKEN"/>
+  <xs:element name="UpgradesTo" type="xs:NMTOKEN"/>
+</xs:schema>

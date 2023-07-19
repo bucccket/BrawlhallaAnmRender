@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="RegionTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="RegionType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegionType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RegionID"/>
+        <xs:element ref="AvailableForRank"/>
+        <xs:element minOccurs="0" ref="AvailableForCustom"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="InternalCode"/>
+          <xs:element ref="IconLabel"/>
+        </xs:sequence>
+        <xs:element ref="OrderID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ValhallanCount"/>
+          <xs:element ref="DisplayNameKey"/>
+          <xs:element ref="ShortNameKey"/>
+          <xs:element ref="CurrentRegionKey"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="RegionName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegionID" type="xs:integer"/>
+  <xs:element name="AvailableForRank" type="xs:NCName"/>
+  <xs:element name="AvailableForCustom" type="xs:NCName"/>
+  <xs:element name="InternalCode" type="xs:NCName"/>
+  <xs:element name="IconLabel" type="xs:NCName"/>
+  <xs:element name="OrderID" type="xs:integer"/>
+  <xs:element name="ValhallanCount" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:NCName"/>
+  <xs:element name="ShortNameKey" type="xs:NCName"/>
+  <xs:element name="CurrentRegionKey" type="xs:NCName"/>
+</xs:schema>

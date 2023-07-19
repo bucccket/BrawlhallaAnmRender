@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="StatTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="StatType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="AirRecoverMod"/>
+          <xs:element ref="ImpulseMult"/>
+          <xs:element ref="MinChargeMod"/>
+          <xs:element ref="RecoverMod"/>
+          <xs:element ref="SigRecoverMod"/>
+        </xs:choice>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="Acceleration"/>
+          <xs:element ref="AirAcceleration"/>
+          <xs:element ref="AirFriction"/>
+          <xs:element ref="AirRunSpeed"/>
+          <xs:element ref="AnimSpeed"/>
+          <xs:element ref="Friction"/>
+          <xs:element ref="JumpXImpulse"/>
+          <xs:element ref="Recovery"/>
+          <xs:element ref="RunSpeed"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="StatName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AirRecoverMod" type="xs:decimal"/>
+  <xs:element name="ImpulseMult" type="xs:decimal"/>
+  <xs:element name="MinChargeMod" type="xs:decimal"/>
+  <xs:element name="RecoverMod" type="xs:decimal"/>
+  <xs:element name="SigRecoverMod" type="xs:decimal"/>
+  <xs:element name="Acceleration" type="xs:decimal"/>
+  <xs:element name="AirAcceleration" type="xs:decimal"/>
+  <xs:element name="AirFriction" type="xs:decimal"/>
+  <xs:element name="AirRunSpeed" type="xs:decimal"/>
+  <xs:element name="AnimSpeed" type="xs:decimal"/>
+  <xs:element name="Friction" type="xs:decimal"/>
+  <xs:element name="JumpXImpulse" type="xs:decimal"/>
+  <xs:element name="Recovery" type="xs:decimal"/>
+  <xs:element name="RunSpeed" type="xs:decimal"/>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="PowerSwapTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="PowerSwapType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PowerSwapType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TargetPower"/>
+        <xs:element minOccurs="0" ref="CastSound"/>
+        <xs:element minOccurs="0" ref="HitSoundLight"/>
+        <xs:element minOccurs="0" ref="HitSoundHeavy"/>
+        <xs:element minOccurs="0" ref="CastSoundEvent"/>
+        <xs:element minOccurs="0" ref="HitSoundEvent"/>
+        <xs:element minOccurs="0" ref="CastAnim"/>
+        <xs:element ref="CastGfx"/>
+        <xs:element ref="FireGfx"/>
+        <xs:element ref="HitGfx"/>
+        <xs:element minOccurs="0" ref="GrabAnim"/>
+        <xs:element minOccurs="0" ref="HitReactAnim"/>
+      </xs:sequence>
+      <xs:attribute name="OwnerCostume"/>
+      <xs:attribute name="OwnerHero"/>
+      <xs:attribute name="OwnerSpawnBot" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TargetPower" type="xs:NMTOKEN"/>
+  <xs:element name="CastSound" type="xs:string"/>
+  <xs:element name="HitSoundLight" type="xs:NCName"/>
+  <xs:element name="HitSoundHeavy" type="xs:NCName"/>
+  <xs:element name="CastSoundEvent" type="xs:string"/>
+  <xs:element name="HitSoundEvent" type="xs:NCName"/>
+  <xs:element name="CastAnim" type="xs:NMTOKEN"/>
+  <xs:element name="CastGfx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="AnimFile"/>
+        <xs:element minOccurs="0" ref="AnimClass"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FireGfx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="AnimFile"/>
+        <xs:element minOccurs="0" ref="AnimClass"/>
+        <xs:element minOccurs="0" ref="CustomArt1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomArt1" type="xs:string"/>
+  <xs:element name="HitGfx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="AnimFile"/>
+        <xs:element minOccurs="0" ref="AnimClass"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GrabAnim" type="xs:NMTOKEN"/>
+  <xs:element name="HitReactAnim" type="xs:NMTOKEN"/>
+  <xs:element name="AnimFile" type="xs:NMTOKEN"/>
+  <xs:element name="AnimClass" type="xs:NCName"/>
+</xs:schema>

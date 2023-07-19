@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="PlayerThemeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="PlayerThemeType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerThemeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PlayerThemeID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="IconName"/>
+        <xs:element ref="KillplateAsset"/>
+        <xs:element ref="NameplateAsset"/>
+        <xs:element ref="ScoreplateAsset"/>
+        <xs:element ref="FileName"/>
+        <xs:element ref="ShowInUI"/>
+        <xs:element ref="AnimRig"/>
+        <xs:element minOccurs="0" ref="AnimCustomArt"/>
+      </xs:sequence>
+      <xs:attribute name="PlayerThemeName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayerThemeID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="IconName" type="xs:NMTOKEN"/>
+  <xs:element name="KillplateAsset" type="xs:NMTOKEN"/>
+  <xs:element name="NameplateAsset" type="xs:NMTOKEN"/>
+  <xs:element name="ScoreplateAsset" type="xs:NMTOKEN"/>
+  <xs:element name="FileName" type="xs:NMTOKEN"/>
+  <xs:element name="ShowInUI" type="xs:NCName"/>
+  <xs:element name="AnimRig" type="xs:NMTOKEN"/>
+  <xs:element name="AnimCustomArt" type="xs:NMTOKEN"/>
+</xs:schema>

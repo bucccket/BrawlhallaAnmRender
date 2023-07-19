@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="EmitterTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EmitterType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmitterType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EmitterID"/>
+        <xs:element ref="Lifespan"/>
+        <xs:element ref="Frequency"/>
+        <xs:element minOccurs="0" ref="TrailSpacing"/>
+        <xs:element ref="Animations"/>
+        <xs:element ref="AnimScale"/>
+        <xs:element ref="AnimSpeed"/>
+        <xs:element ref="AutoCleanUp"/>
+        <xs:element minOccurs="0" ref="UseDamageTint"/>
+        <xs:element minOccurs="0" ref="AnimFile"/>
+      </xs:sequence>
+      <xs:attribute name="EmitterName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmitterID" type="xs:integer"/>
+  <xs:element name="Lifespan" type="xs:integer"/>
+  <xs:element name="Frequency" type="xs:integer"/>
+  <xs:element name="TrailSpacing" type="xs:integer"/>
+  <xs:element name="Animations" type="xs:string"/>
+  <xs:element name="AnimScale" type="xs:decimal"/>
+  <xs:element name="AnimSpeed" type="xs:integer"/>
+  <xs:element name="AutoCleanUp" type="xs:boolean"/>
+  <xs:element name="UseDamageTint" type="xs:boolean"/>
+  <xs:element name="AnimFile" type="xs:string"/>
+</xs:schema>

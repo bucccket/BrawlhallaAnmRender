@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="GeoTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="GeoType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeoType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="GeoID"/>
+        <xs:element ref="PrimaryRegion"/>
+        <xs:element minOccurs="0" ref="DefaultOn"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="DefaultOff"/>
+          <xs:element ref="MapPiece"/>
+          <xs:element ref="OrderID"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="GeoName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GeoID" type="xs:integer"/>
+  <xs:element name="PrimaryRegion" type="xs:NCName"/>
+  <xs:element name="DefaultOn" type="xs:NCName"/>
+  <xs:element name="DefaultOff" type="xs:string"/>
+  <xs:element name="MapPiece" type="xs:integer"/>
+  <xs:element name="OrderID" type="xs:integer"/>
+</xs:schema>

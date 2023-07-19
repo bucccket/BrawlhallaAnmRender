@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HeroTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="HeroType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HeroType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="HeroID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="HeroDisplayName"/>
+          <xs:element ref="BotDisplayName"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="AlphabetizedName"/>
+        <xs:element minOccurs="0" ref="MissionTags"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="NameSound"/>
+          <xs:element ref="OnSelectedSound"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="NameSoundEvent"/>
+          <xs:element ref="OnSelectedSoundEvent"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="SoundBank"/>
+        <xs:element ref="CostumeName"/>
+        <xs:element ref="IsBeta"/>
+        <xs:element ref="IsActive"/>
+        <xs:element ref="CanRandom"/>
+        <xs:element ref="Portrait"/>
+        <xs:element ref="PortraitFileName"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="BaseWeapon1"/>
+          <xs:element ref="SpecialPower1"/>
+          <xs:element ref="SpecialPower1_Forward"/>
+          <xs:element ref="SpecialPower1_Down"/>
+          <xs:element ref="BaseWeapon2"/>
+          <xs:element ref="SpecialPower2"/>
+          <xs:element ref="SpecialPower2_Forward"/>
+          <xs:element ref="SpecialPower2_Down"/>
+          <xs:element ref="Strength"/>
+          <xs:element ref="Dexterity"/>
+          <xs:element ref="Weight"/>
+          <xs:element ref="Speed"/>
+          <xs:element ref="ColorRewards"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="HomeField"/>
+        <xs:element minOccurs="0" ref="SplashArt"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="BioName"/>
+          <xs:element ref="BioAKAKey"/>
+          <xs:element ref="BioQuoteAboutKey"/>
+          <xs:element ref="BioQuoteAboutAttribKey"/>
+          <xs:element ref="BioQuoteFromKey"/>
+          <xs:element ref="BioQuoteFromAttribKey"/>
+          <xs:element ref="BioTextKey"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="PaperDollWeapon"/>
+        <xs:element minOccurs="0" ref="PaperDollFacesLeft"/>
+        <xs:element minOccurs="0" ref="IdleInPreview"/>
+        <xs:element minOccurs="0" ref="IdleInStore"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="OverIdleAnim"/>
+          <xs:element ref="OverIdleSound"/>
+          <xs:element ref="MinOverIdleTime"/>
+          <xs:element ref="RangeOverIdleTime"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="MatchPreviewXOffset"/>
+      </xs:sequence>
+      <xs:attribute name="HeroName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HeroID" type="xs:integer"/>
+  <xs:element name="HeroDisplayName" type="xs:string"/>
+  <xs:element name="BotDisplayName" type="xs:string"/>
+  <xs:element name="AlphabetizedName" type="xs:NMTOKEN"/>
+  <xs:element name="MissionTags" type="xs:string"/>
+  <xs:element name="NameSound" type="xs:NMTOKEN"/>
+  <xs:element name="OnSelectedSound" type="xs:string"/>
+  <xs:element name="NameSoundEvent" type="xs:NMTOKEN"/>
+  <xs:element name="OnSelectedSoundEvent" type="xs:string"/>
+  <xs:element name="SoundBank" type="xs:NMTOKEN"/>
+  <xs:element name="CostumeName" type="xs:NMTOKEN"/>
+  <xs:element name="IsBeta" type="xs:NCName"/>
+  <xs:element name="IsActive" type="xs:NCName"/>
+  <xs:element name="CanRandom" type="xs:NCName"/>
+  <xs:element name="Portrait" type="xs:NCName"/>
+  <xs:element name="PortraitFileName" type="xs:NCName"/>
+  <xs:element name="BaseWeapon1" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower1" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower1_Forward" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower1_Down" type="xs:NMTOKEN"/>
+  <xs:element name="BaseWeapon2" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower2" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower2_Forward" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialPower2_Down" type="xs:NMTOKEN"/>
+  <xs:element name="Strength" type="xs:integer"/>
+  <xs:element name="Dexterity" type="xs:integer"/>
+  <xs:element name="Weight" type="xs:integer"/>
+  <xs:element name="Speed" type="xs:integer"/>
+  <xs:element name="ColorRewards" type="xs:string"/>
+  <xs:element name="HomeField" type="xs:string"/>
+  <xs:element name="SplashArt" type="xs:NMTOKEN"/>
+  <xs:element name="BioName" type="xs:string"/>
+  <xs:element name="BioAKAKey" type="xs:string"/>
+  <xs:element name="BioQuoteAboutKey" type="xs:string"/>
+  <xs:element name="BioQuoteAboutAttribKey" type="xs:string"/>
+  <xs:element name="BioQuoteFromKey" type="xs:string"/>
+  <xs:element name="BioQuoteFromAttribKey" type="xs:string"/>
+  <xs:element name="BioTextKey" type="xs:string"/>
+  <xs:element name="PaperDollWeapon" type="xs:NMTOKEN"/>
+  <xs:element name="PaperDollFacesLeft" type="xs:boolean"/>
+  <xs:element name="IdleInPreview" type="xs:boolean"/>
+  <xs:element name="IdleInStore" type="xs:boolean"/>
+  <xs:element name="OverIdleAnim" type="xs:NCName"/>
+  <xs:element name="OverIdleSound" type="xs:string"/>
+  <xs:element name="MinOverIdleTime" type="xs:string"/>
+  <xs:element name="RangeOverIdleTime" type="xs:string"/>
+  <xs:element name="MatchPreviewXOffset" type="xs:integer"/>
+</xs:schema>

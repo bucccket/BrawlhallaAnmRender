@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="MusicTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MusicType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusicType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DisplayName"/>
+        <xs:element ref="MusicID"/>
+        <xs:element minOccurs="0" ref="Intro"/>
+        <xs:element minOccurs="0" ref="Loop"/>
+        <xs:element minOccurs="0" ref="IntroLength"/>
+        <xs:element ref="SoundBank"/>
+        <xs:element ref="StartEvent"/>
+        <xs:element ref="StopEvent"/>
+      </xs:sequence>
+      <xs:attribute name="MusicName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayName" type="xs:string"/>
+  <xs:element name="MusicID" type="xs:integer"/>
+  <xs:element name="Intro" type="xs:NCName"/>
+  <xs:element name="Loop" type="xs:NCName"/>
+  <xs:element name="IntroLength" type="xs:integer"/>
+  <xs:element name="SoundBank" type="xs:string"/>
+  <xs:element name="StartEvent" type="xs:NCName"/>
+  <xs:element name="StopEvent" type="xs:NCName"/>
+</xs:schema>

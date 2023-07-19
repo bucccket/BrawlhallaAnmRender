@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ScoringTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ScoringType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScoringType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ScoringID"/>
+        <xs:element minOccurs="0" ref="DisplayOrder"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="DefaultGameModeType"/>
+        <xs:element ref="IconName"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="AllowCycleOption"/>
+          <xs:element ref="AlwaysEquipItem"/>
+          <xs:element ref="BanHandicaps"/>
+          <xs:element ref="CanEnterSuddenDeath"/>
+          <xs:element ref="CannotHaveTeams"/>
+          <xs:element ref="CannotTakeDamage"/>
+          <xs:element ref="CannotThrow"/>
+          <xs:element ref="DescriptionArt"/>
+          <xs:element ref="DescriptionKey"/>
+          <xs:element ref="DisableGadgets"/>
+          <xs:element ref="DisableWeapons"/>
+          <xs:element ref="DropDuration"/>
+          <xs:element ref="EntitiesPerPlayer"/>
+          <xs:element ref="ExtraLevelSets"/>
+          <xs:element ref="FetchDuration"/>
+          <xs:element ref="ForceAutoLevelSet"/>
+          <xs:element ref="ForceUniqueColors"/>
+          <xs:element ref="ForcedMaxPlayers"/>
+          <xs:element ref="ForcedNumPlayers"/>
+          <xs:element ref="HasThrowPower"/>
+          <xs:element ref="HideHPBar"/>
+          <xs:element ref="HideRoundTimer"/>
+          <xs:element ref="HideTimer"/>
+          <xs:element ref="ImportantItem2Type"/>
+          <xs:element ref="ImportantItemType"/>
+          <xs:element ref="InvertScore"/>
+          <xs:element ref="IsPartyGame"/>
+          <xs:element ref="LevelSet1v1"/>
+          <xs:element ref="LevelSet2v2"/>
+          <xs:element ref="LevelSet3v3"/>
+          <xs:element ref="LevelSetAll"/>
+          <xs:element ref="LevelSetBig"/>
+          <xs:element ref="LevelSetBigTeam"/>
+          <xs:element ref="LevelSetFFA"/>
+          <xs:element ref="LockTeamDamage"/>
+          <xs:element ref="MaxLives"/>
+          <xs:element ref="MaxScoreToWin"/>
+          <xs:element ref="MinLives"/>
+          <xs:element ref="MustHaveTeams"/>
+          <xs:element ref="NumExtraBots"/>
+          <xs:element ref="NumExtraNetBots"/>
+          <xs:element ref="OverrideMaxDuration"/>
+          <xs:element ref="OverrideScoreboard"/>
+          <xs:element ref="PickSingleWeapon"/>
+          <xs:element ref="Points"/>
+          <xs:element ref="RespawnDuration"/>
+          <xs:element ref="RespawnTimesForRounds"/>
+          <xs:element ref="RespawnTimesOnlyForSpecialEntities"/>
+          <xs:element ref="RotatingHeroes"/>
+          <xs:element ref="Rounds"/>
+          <xs:element ref="ScoreToWinIncrement"/>
+          <xs:element ref="ScoreboardAllWinners"/>
+          <xs:element ref="SpecialEntOverrideGfx"/>
+          <xs:element ref="Stock"/>
+          <xs:element ref="UseAltScore"/>
+          <xs:element ref="Waves"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="Enabled" use="required" type="xs:NCName"/>
+      <xs:attribute name="ScoringName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScoringID" type="xs:integer"/>
+  <xs:element name="DisplayOrder" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="DefaultGameModeType" type="xs:NMTOKEN"/>
+  <xs:element name="IconName" type="xs:NCName"/>
+  <xs:element name="AllowCycleOption" type="xs:NCName"/>
+  <xs:element name="AlwaysEquipItem" type="xs:NMTOKEN"/>
+  <xs:element name="BanHandicaps" type="xs:NCName"/>
+  <xs:element name="CanEnterSuddenDeath" type="xs:NCName"/>
+  <xs:element name="CannotHaveTeams" type="xs:NCName"/>
+  <xs:element name="CannotTakeDamage" type="xs:NCName"/>
+  <xs:element name="CannotThrow" type="xs:NCName"/>
+  <xs:element name="DescriptionArt" type="xs:string"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="DisableGadgets" type="xs:NCName"/>
+  <xs:element name="DisableWeapons" type="xs:NCName"/>
+  <xs:element name="DropDuration" type="xs:integer"/>
+  <xs:element name="EntitiesPerPlayer" type="xs:integer"/>
+  <xs:element name="ExtraLevelSets" type="xs:string"/>
+  <xs:element name="FetchDuration" type="xs:integer"/>
+  <xs:element name="ForceAutoLevelSet" type="xs:NCName"/>
+  <xs:element name="ForceUniqueColors" type="xs:NCName"/>
+  <xs:element name="ForcedMaxPlayers" type="xs:integer"/>
+  <xs:element name="ForcedNumPlayers" type="xs:integer"/>
+  <xs:element name="HasThrowPower" type="xs:NCName"/>
+  <xs:element name="HideHPBar" type="xs:NCName"/>
+  <xs:element name="HideRoundTimer" type="xs:NCName"/>
+  <xs:element name="HideTimer" type="xs:NCName"/>
+  <xs:element name="ImportantItem2Type" type="xs:NMTOKEN"/>
+  <xs:element name="ImportantItemType" type="xs:NMTOKEN"/>
+  <xs:element name="InvertScore" type="xs:NCName"/>
+  <xs:element name="IsPartyGame" type="xs:NCName"/>
+  <xs:element name="LevelSet1v1" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSet2v2" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSet3v3" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSetAll" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSetBig" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSetBigTeam" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSetFFA" type="xs:NMTOKEN"/>
+  <xs:element name="LockTeamDamage" type="xs:NCName"/>
+  <xs:element name="MaxLives" type="xs:integer"/>
+  <xs:element name="MaxScoreToWin" type="xs:integer"/>
+  <xs:element name="MinLives" type="xs:integer"/>
+  <xs:element name="MustHaveTeams" type="xs:NCName"/>
+  <xs:element name="NumExtraBots" type="xs:integer"/>
+  <xs:element name="NumExtraNetBots" type="xs:integer"/>
+  <xs:element name="OverrideMaxDuration" type="xs:integer"/>
+  <xs:element name="OverrideScoreboard" type="xs:NCName"/>
+  <xs:element name="PickSingleWeapon" type="xs:NCName"/>
+  <xs:element name="Points" type="xs:NCName"/>
+  <xs:element name="RespawnDuration" type="xs:integer"/>
+  <xs:element name="RespawnTimesForRounds" type="xs:NCName"/>
+  <xs:element name="RespawnTimesOnlyForSpecialEntities" type="xs:boolean"/>
+  <xs:element name="RotatingHeroes" type="xs:NCName"/>
+  <xs:element name="Rounds" type="xs:NCName"/>
+  <xs:element name="ScoreToWinIncrement" type="xs:integer"/>
+  <xs:element name="ScoreboardAllWinners" type="xs:NCName"/>
+  <xs:element name="SpecialEntOverrideGfx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="AnimFile"/>
+          <xs:element ref="AnimClass"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="AnimScale"/>
+          <xs:element ref="MoveAnimSpeed"/>
+          <xs:element ref="FlipAnim"/>
+          <xs:element ref="Tint"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnimFile" type="xs:NCName"/>
+  <xs:element name="AnimClass" type="xs:NMTOKEN"/>
+  <xs:element name="AnimScale" type="xs:integer"/>
+  <xs:element name="MoveAnimSpeed" type="xs:integer"/>
+  <xs:element name="FlipAnim" type="xs:NCName"/>
+  <xs:element name="Tint" type="xs:string"/>
+  <xs:element name="Stock" type="xs:NCName"/>
+  <xs:element name="UseAltScore" type="xs:NCName"/>
+  <xs:element name="Waves" type="xs:NCName"/>
+</xs:schema>

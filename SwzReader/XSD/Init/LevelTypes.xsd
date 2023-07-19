@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="LevelTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="LevelType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LevelType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DisplayName"/>
+        <xs:element ref="LevelID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="FileName"/>
+          <xs:element ref="AssetName"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="CrateColorA"/>
+          <xs:element ref="CrateColorB"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="LeftKill"/>
+          <xs:element ref="RightKill"/>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element ref="BottomKill"/>
+            <xs:element ref="HardLeftKill"/>
+            <xs:element ref="HardRightKill"/>
+            <xs:element ref="SoftTopKill"/>
+            <xs:element ref="TopKill"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="BGMusic"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="AIStrictRecover"/>
+          <xs:element ref="BotFraction"/>
+          <xs:element ref="BotOffset"/>
+          <xs:element ref="BotTint"/>
+          <xs:element ref="FixedWidth"/>
+          <xs:element ref="MidgroundFraction"/>
+          <xs:element ref="MidgroundOffset"/>
+          <xs:element ref="MidgroundTint"/>
+          <xs:element ref="ThumbnailPNGFile"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="ShowPlatsDuringMove"/>
+        <xs:element minOccurs="0" ref="NegateOverlaps"/>
+        <xs:element minOccurs="0" ref="StartFrame"/>
+        <xs:element minOccurs="0" ref="FixedCamera"/>
+        <xs:element minOccurs="0" ref="AllowItemSpawnOverlap"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="AIGroundLine"/>
+          <xs:element ref="AIPanicLine"/>
+          <xs:element ref="ColorExclusionList"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="DevOnly" use="required" type="xs:NCName"/>
+      <xs:attribute name="LevelName" use="required" type="xs:NCName"/>
+      <xs:attribute name="TestLevel" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayName" type="xs:string"/>
+  <xs:element name="LevelID" type="xs:integer"/>
+  <xs:element name="FileName" type="xs:string"/>
+  <xs:element name="AssetName" type="xs:string"/>
+  <xs:element name="CrateColorA" type="xs:NMTOKEN"/>
+  <xs:element name="CrateColorB" type="xs:NMTOKEN"/>
+  <xs:element name="LeftKill" type="xs:integer"/>
+  <xs:element name="RightKill" type="xs:integer"/>
+  <xs:element name="BottomKill" type="xs:integer"/>
+  <xs:element name="HardLeftKill" type="xs:boolean"/>
+  <xs:element name="HardRightKill" type="xs:boolean"/>
+  <xs:element name="SoftTopKill" type="xs:boolean"/>
+  <xs:element name="TopKill" type="xs:integer"/>
+  <xs:element name="BGMusic" type="xs:NMTOKEN"/>
+  <xs:element name="AIStrictRecover" type="xs:NCName"/>
+  <xs:element name="BotFraction" type="xs:decimal"/>
+  <xs:element name="BotOffset" type="xs:NMTOKEN"/>
+  <xs:element name="BotTint" type="xs:NMTOKEN"/>
+  <xs:element name="FixedWidth" type="xs:NCName"/>
+  <xs:element name="MidgroundFraction" type="xs:decimal"/>
+  <xs:element name="MidgroundOffset" type="xs:NMTOKEN"/>
+  <xs:element name="MidgroundTint" type="xs:NMTOKEN"/>
+  <xs:element name="ThumbnailPNGFile" type="xs:NMTOKEN"/>
+  <xs:element name="ShowPlatsDuringMove" type="xs:boolean"/>
+  <xs:element name="NegateOverlaps" type="xs:boolean"/>
+  <xs:element name="StartFrame" type="xs:integer"/>
+  <xs:element name="FixedCamera" type="xs:boolean"/>
+  <xs:element name="AllowItemSpawnOverlap" type="xs:boolean"/>
+  <xs:element name="AIGroundLine" type="xs:integer"/>
+  <xs:element name="AIPanicLine" type="xs:integer"/>
+  <xs:element name="ColorExclusionList" type="xs:string"/>
+</xs:schema>

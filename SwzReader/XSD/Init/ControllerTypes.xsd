@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ControllerTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ControllerType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControllerType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ControllerTypeID"/>
+        <xs:element minOccurs="0" ref="DisplayName"/>
+        <xs:element ref="HotkeyType"/>
+        <xs:element minOccurs="0" ref="SwitchStyleMask"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="A"/>
+          <xs:element ref="B"/>
+          <xs:element ref="X"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="Y"/>
+        <xs:element minOccurs="0" ref="LB"/>
+        <xs:element minOccurs="0" ref="RB"/>
+        <xs:element minOccurs="0" ref="LT"/>
+        <xs:element minOccurs="0" ref="RT"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="LeftSL"/>
+          <xs:element ref="LeftSR"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="RightSL"/>
+          <xs:element ref="RightSR"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="BACK"/>
+        <xs:element minOccurs="0" ref="START"/>
+        <xs:element minOccurs="0" ref="LS"/>
+        <xs:element minOccurs="0" ref="RS"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="UP"/>
+          <xs:element ref="DOWN"/>
+          <xs:element ref="LEFT"/>
+          <xs:element ref="RIGHT"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="LSX"/>
+          <xs:element ref="LSY"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="RSX"/>
+          <xs:element ref="RSY"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="DPAD"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="DPADX"/>
+          <xs:element ref="DPADY"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="StickLUp"/>
+          <xs:element ref="StickLDown"/>
+          <xs:element ref="StickLLeft"/>
+          <xs:element ref="StickLRight"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="StickRUp"/>
+          <xs:element ref="StickRDown"/>
+          <xs:element ref="StickRLeft"/>
+          <xs:element ref="StickRRight"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="InvertYAxis"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="ActsAsXControllers"/>
+          <xs:element ref="Android"/>
+          <xs:element ref="DefaultMapping"/>
+          <xs:element ref="FlipLeftAndUp"/>
+          <xs:element ref="IOS"/>
+          <xs:element ref="LeftStickLow"/>
+          <xs:element ref="MacOS"/>
+          <xs:element ref="NumControls"/>
+          <xs:element ref="ThreshMult"/>
+          <xs:element ref="Windows"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="ControllerTypeNames" use="required"/>
+      <xs:attribute name="Platform" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControllerTypeID" type="xs:integer"/>
+  <xs:element name="DisplayName" type="xs:string"/>
+  <xs:element name="HotkeyType" type="xs:NCName"/>
+  <xs:element name="SwitchStyleMask" type="xs:string"/>
+  <xs:element name="A" type="xs:string"/>
+  <xs:element name="B" type="xs:string"/>
+  <xs:element name="X" type="xs:string"/>
+  <xs:element name="Y" type="xs:string"/>
+  <xs:element name="LB" type="xs:string"/>
+  <xs:element name="RB" type="xs:string"/>
+  <xs:element name="LT" type="xs:string"/>
+  <xs:element name="RT" type="xs:string"/>
+  <xs:element name="LeftSL" type="xs:string"/>
+  <xs:element name="LeftSR" type="xs:string"/>
+  <xs:element name="RightSL" type="xs:string"/>
+  <xs:element name="RightSR" type="xs:string"/>
+  <xs:element name="BACK" type="xs:NCName"/>
+  <xs:element name="START" type="xs:string"/>
+  <xs:element name="LS" type="xs:NCName"/>
+  <xs:element name="RS" type="xs:NCName"/>
+  <xs:element name="UP" type="xs:string"/>
+  <xs:element name="DOWN" type="xs:string"/>
+  <xs:element name="LEFT" type="xs:string"/>
+  <xs:element name="RIGHT" type="xs:string"/>
+  <xs:element name="LSX" type="xs:string"/>
+  <xs:element name="LSY" type="xs:string"/>
+  <xs:element name="RSX" type="xs:string"/>
+  <xs:element name="RSY" type="xs:string"/>
+  <xs:element name="DPAD" type="xs:NCName"/>
+  <xs:element name="DPADX" type="xs:NCName"/>
+  <xs:element name="DPADY" type="xs:NCName"/>
+  <xs:element name="StickLUp" type="xs:string"/>
+  <xs:element name="StickLDown" type="xs:string"/>
+  <xs:element name="StickLLeft" type="xs:string"/>
+  <xs:element name="StickLRight" type="xs:string"/>
+  <xs:element name="StickRUp" type="xs:string"/>
+  <xs:element name="StickRDown" type="xs:string"/>
+  <xs:element name="StickRLeft" type="xs:string"/>
+  <xs:element name="StickRRight" type="xs:string"/>
+  <xs:element name="InvertYAxis" type="xs:NCName"/>
+  <xs:element name="ActsAsXControllers" type="xs:integer"/>
+  <xs:element name="Android" type="xs:NCName"/>
+  <xs:element name="DefaultMapping" type="xs:NMTOKEN"/>
+  <xs:element name="FlipLeftAndUp" type="xs:boolean"/>
+  <xs:element name="IOS" type="xs:NCName"/>
+  <xs:element name="LeftStickLow" type="xs:NCName"/>
+  <xs:element name="MacOS" type="xs:NCName"/>
+  <xs:element name="NumControls" type="xs:integer"/>
+  <xs:element name="ThreshMult" type="xs:decimal"/>
+  <xs:element name="Windows" type="xs:NCName"/>
+</xs:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="LevelSetTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="LevelSetType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LevelSetType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="LevelSetID"/>
+        <xs:element minOccurs="0" ref="SkipOrderValidation"/>
+        <xs:element minOccurs="0" ref="LevelTypes"/>
+      </xs:sequence>
+      <xs:attribute name="LevelSetName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisplayNameKey" type="xs:NCName"/>
+  <xs:element name="LevelSetID" type="xs:integer"/>
+  <xs:element name="SkipOrderValidation" type="xs:string"/>
+  <xs:element name="LevelTypes" type="xs:string"/>
+</xs:schema>

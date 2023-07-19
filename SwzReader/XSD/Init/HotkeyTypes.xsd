@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HotkeyTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="HotkeyType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotkeyType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element ref="MappingForUI"/>
+        <xs:element ref="ControllerAssetName"/>
+        <xs:element minOccurs="0" ref="ControllerAssetIsColorable"/>
+        <xs:element ref="DefaultBindingsAssetName"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="A"/>
+          <xs:element ref="B"/>
+          <xs:element ref="X"/>
+          <xs:element ref="Y"/>
+        </xs:choice>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="BACK"/>
+          <xs:element ref="DOWN"/>
+          <xs:element ref="LB"/>
+          <xs:element ref="LEFT"/>
+          <xs:element ref="LT"/>
+          <xs:element ref="LeftSL"/>
+          <xs:element ref="LeftSR"/>
+          <xs:element ref="RB"/>
+          <xs:element ref="RIGHT"/>
+          <xs:element ref="RT"/>
+          <xs:element ref="RightSL"/>
+          <xs:element ref="RightSR"/>
+          <xs:element ref="START"/>
+          <xs:element ref="UP"/>
+        </xs:choice>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Taunt0"/>
+          <xs:element ref="Taunt1"/>
+          <xs:element ref="Taunt2"/>
+          <xs:element ref="Taunt3"/>
+          <xs:element ref="Taunt4"/>
+          <xs:element ref="Taunt5"/>
+          <xs:element ref="Taunt6"/>
+          <xs:element ref="Taunt7"/>
+          <xs:element ref="StepFwd"/>
+          <xs:element ref="StepBack"/>
+          <xs:element ref="StepPause"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="PowersViewer"/>
+        <xs:element ref="LevelIconSet"/>
+      </xs:sequence>
+      <xs:attribute name="HotkeyName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:string"/>
+  <xs:element name="MappingForUI" type="xs:string"/>
+  <xs:element name="ControllerAssetName" type="xs:string"/>
+  <xs:element name="ControllerAssetIsColorable" type="xs:boolean"/>
+  <xs:element name="DefaultBindingsAssetName" type="xs:string"/>
+  <xs:element name="A">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="B">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="X">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Y" type="xs:NCName"/>
+  <xs:element name="BACK">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DOWN">
+    <xs:complexType mixed="true">
+      <xs:attribute name="Rotation" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LB">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelSuffix" type="xs:NCName"/>
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LEFT">
+    <xs:complexType mixed="true">
+      <xs:attribute name="Rotation" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LT">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelSuffix" type="xs:NCName"/>
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeftSL">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelSuffix" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LeftSR">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelPrefix" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RB">
+    <xs:complexType mixed="true">
+      <xs:attribute name="LabelPrefix" type="xs:NCName"/>
+      <xs:attribute name="Rotation" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RIGHT" type="xs:string"/>
+  <xs:element name="RT">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelPrefix" type="xs:NCName"/>
+          <xs:attribute name="Rotation" type="xs:integer"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RightSL">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelSuffix" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RightSR">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:NCName">
+          <xs:attribute name="LabelPrefix" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="START" type="xs:string"/>
+  <xs:element name="UP">
+    <xs:complexType mixed="true">
+      <xs:attribute name="Rotation" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Taunt0" type="xs:string"/>
+  <xs:element name="Taunt1" type="xs:string"/>
+  <xs:element name="Taunt2" type="xs:string"/>
+  <xs:element name="Taunt3" type="xs:string"/>
+  <xs:element name="Taunt4" type="xs:string"/>
+  <xs:element name="Taunt5" type="xs:string"/>
+  <xs:element name="Taunt6" type="xs:string"/>
+  <xs:element name="Taunt7" type="xs:string"/>
+  <xs:element name="StepFwd" type="xs:string"/>
+  <xs:element name="StepBack" type="xs:string"/>
+  <xs:element name="StepPause" type="xs:string"/>
+  <xs:element name="PowersViewer" type="xs:NCName"/>
+  <xs:element name="LevelIconSet" type="xs:string"/>
+</xs:schema>

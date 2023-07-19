@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="PromoTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="PromoType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PromoType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StoreID"/>
+        <xs:element minOccurs="0" ref="DisplayNameKey"/>
+        <xs:element minOccurs="0" ref="IconName"/>
+        <xs:element ref="Type"/>
+        <xs:element minOccurs="0" ref="Rarity"/>
+        <xs:element ref="Item"/>
+        <xs:element minOccurs="0" ref="ItemList"/>
+      </xs:sequence>
+      <xs:attribute name="StoreName" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="IconName" type="xs:NCName"/>
+  <xs:element name="Type" type="xs:NCName"/>
+  <xs:element name="Rarity" type="xs:NCName"/>
+  <xs:element name="Item" type="xs:string"/>
+  <xs:element name="ItemList" type="xs:string"/>
+</xs:schema>

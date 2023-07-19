@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="MissionTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MissionType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MissionType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MissionID"/>
+        <xs:element ref="Category"/>
+        <xs:element minOccurs="0" ref="DescriptionKey"/>
+        <xs:element minOccurs="0" ref="ToolTipKey"/>
+        <xs:element minOccurs="0" ref="RewardGold"/>
+        <xs:element minOccurs="0" ref="RewardRankedPoints"/>
+        <xs:element minOccurs="0" ref="RewardBattleStars"/>
+        <xs:element minOccurs="0" ref="RewardPromoType"/>
+        <xs:element minOccurs="0" ref="RewardMission"/>
+        <xs:element minOccurs="0" ref="AutoStart"/>
+        <xs:element minOccurs="0" ref="CompleteAsBool"/>
+        <xs:element minOccurs="0" ref="CompleteAtOnce"/>
+        <xs:element ref="SuccessCount"/>
+        <xs:element minOccurs="0" ref="MinimumTimeBetweenEvents"/>
+        <xs:element minOccurs="0" ref="NotForNewPlayers"/>
+        <xs:element minOccurs="0" ref="MarkerNameKey"/>
+        <xs:element minOccurs="0" ref="LogarithmicProgressDisplay"/>
+        <xs:element ref="Event1"/>
+        <xs:element minOccurs="0" ref="Event2"/>
+        <xs:element minOccurs="0" ref="Event3"/>
+        <xs:element minOccurs="0" ref="Event4"/>
+        <xs:element minOccurs="0" ref="Event5"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event6"/>
+          <xs:element ref="Event7"/>
+          <xs:element ref="Event8"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event9"/>
+          <xs:element ref="Event10"/>
+          <xs:element ref="Event11"/>
+          <xs:element ref="Event12"/>
+          <xs:element ref="Event13"/>
+          <xs:element ref="Event14"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event15"/>
+          <xs:element ref="Event16"/>
+          <xs:element ref="Event17"/>
+          <xs:element ref="Event18"/>
+          <xs:element ref="Event19"/>
+          <xs:element ref="Event20"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event21"/>
+          <xs:element ref="Event22"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event23"/>
+          <xs:element ref="Event24"/>
+          <xs:element ref="Event25"/>
+          <xs:element ref="Event26"/>
+          <xs:element ref="Event27"/>
+        </xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:sequence>
+            <xs:element ref="CheckListKey1"/>
+            <xs:element ref="CheckListKey2"/>
+            <xs:element ref="CheckListKey3"/>
+            <xs:element ref="CheckListKey4"/>
+            <xs:element ref="CheckListKey5"/>
+            <xs:element ref="CheckListKey6"/>
+            <xs:element ref="CheckListKey7"/>
+            <xs:element ref="CheckListKey8"/>
+            <xs:element ref="CheckListKey9"/>
+            <xs:element ref="CheckListKey10"/>
+            <xs:element ref="CheckListKey11"/>
+            <xs:element ref="CheckListKey12"/>
+            <xs:element ref="CheckListKey13"/>
+            <xs:element ref="CheckListKey14"/>
+            <xs:element ref="CheckListKey15"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="Event28"/>
+            <xs:element ref="Event29"/>
+            <xs:element ref="Event30"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="MissionName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MissionID" type="xs:integer"/>
+  <xs:element name="Category" type="xs:NCName"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="ToolTipKey" type="xs:string"/>
+  <xs:element name="RewardGold" type="xs:integer"/>
+  <xs:element name="RewardRankedPoints" type="xs:NMTOKEN"/>
+  <xs:element name="RewardBattleStars" type="xs:integer"/>
+  <xs:element name="RewardPromoType" type="xs:NMTOKEN"/>
+  <xs:element name="RewardMission" type="xs:NMTOKEN"/>
+  <xs:element name="AutoStart" type="xs:NCName"/>
+  <xs:element name="CompleteAsBool" type="xs:NCName"/>
+  <xs:element name="CompleteAtOnce" type="xs:NCName"/>
+  <xs:element name="SuccessCount" type="xs:integer"/>
+  <xs:element name="MinimumTimeBetweenEvents" type="xs:integer"/>
+  <xs:element name="NotForNewPlayers" type="xs:boolean"/>
+  <xs:element name="MarkerNameKey" type="xs:string"/>
+  <xs:element name="LogarithmicProgressDisplay" type="xs:string"/>
+  <xs:element name="Event1" type="xs:NMTOKEN"/>
+  <xs:element name="Event2" type="xs:NMTOKEN"/>
+  <xs:element name="Event3" type="xs:NMTOKEN"/>
+  <xs:element name="Event4" type="xs:NMTOKEN"/>
+  <xs:element name="Event5" type="xs:NMTOKEN"/>
+  <xs:element name="Event6" type="xs:NMTOKEN"/>
+  <xs:element name="Event7" type="xs:NMTOKEN"/>
+  <xs:element name="Event8" type="xs:NMTOKEN"/>
+  <xs:element name="Event9" type="xs:NMTOKEN"/>
+  <xs:element name="Event10" type="xs:NMTOKEN"/>
+  <xs:element name="Event11" type="xs:NMTOKEN"/>
+  <xs:element name="Event12" type="xs:NMTOKEN"/>
+  <xs:element name="Event13" type="xs:NMTOKEN"/>
+  <xs:element name="Event14" type="xs:NMTOKEN"/>
+  <xs:element name="Event15" type="xs:NMTOKEN"/>
+  <xs:element name="Event16" type="xs:NMTOKEN"/>
+  <xs:element name="Event17" type="xs:NMTOKEN"/>
+  <xs:element name="Event18" type="xs:NMTOKEN"/>
+  <xs:element name="Event19" type="xs:NMTOKEN"/>
+  <xs:element name="Event20" type="xs:NMTOKEN"/>
+  <xs:element name="Event21" type="xs:NCName"/>
+  <xs:element name="Event22" type="xs:NCName"/>
+  <xs:element name="Event23" type="xs:NCName"/>
+  <xs:element name="Event24" type="xs:string"/>
+  <xs:element name="Event25" type="xs:string"/>
+  <xs:element name="Event26" type="xs:string"/>
+  <xs:element name="Event27" type="xs:NCName"/>
+  <xs:element name="CheckListKey1" type="xs:string"/>
+  <xs:element name="CheckListKey2" type="xs:string"/>
+  <xs:element name="CheckListKey3" type="xs:string"/>
+  <xs:element name="CheckListKey4" type="xs:string"/>
+  <xs:element name="CheckListKey5" type="xs:string"/>
+  <xs:element name="CheckListKey6" type="xs:string"/>
+  <xs:element name="CheckListKey7" type="xs:string"/>
+  <xs:element name="CheckListKey8" type="xs:string"/>
+  <xs:element name="CheckListKey9" type="xs:string"/>
+  <xs:element name="CheckListKey10" type="xs:string"/>
+  <xs:element name="CheckListKey11" type="xs:string"/>
+  <xs:element name="CheckListKey12" type="xs:string"/>
+  <xs:element name="CheckListKey13" type="xs:string"/>
+  <xs:element name="CheckListKey14" type="xs:string"/>
+  <xs:element name="CheckListKey15" type="xs:string"/>
+  <xs:element name="Event28" type="xs:NCName"/>
+  <xs:element name="Event29" type="xs:string"/>
+  <xs:element name="Event30" type="xs:string"/>
+</xs:schema>

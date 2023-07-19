@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DodgeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="DodgeType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DodgeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DodgeID"/>
+        <xs:element ref="Set"/>
+        <xs:element ref="Direction"/>
+        <xs:element ref="AirType"/>
+        <xs:element ref="IsFast"/>
+        <xs:element ref="Duration"/>
+        <xs:element ref="Recover"/>
+        <xs:element ref="PostDodge"/>
+        <xs:element ref="SpeedXFormula"/>
+        <xs:element ref="SpeedXMult"/>
+        <xs:element ref="SpeedXMaxMult"/>
+        <xs:element ref="SpeedYFormula"/>
+        <xs:element ref="SpeedYMult"/>
+        <xs:element ref="SpeedYMaxMult"/>
+        <xs:element ref="AccelXFormula"/>
+        <xs:element ref="AccelXMult"/>
+        <xs:element ref="AccelYFormula"/>
+        <xs:element ref="AccelYMult"/>
+        <xs:element ref="StartInvuln"/>
+        <xs:element ref="Cooldown"/>
+        <xs:element ref="CooldownGround"/>
+        <xs:element ref="CooldownLanded"/>
+        <xs:element ref="CancelStart"/>
+        <xs:element ref="CancelLimit"/>
+        <xs:element ref="ExitX"/>
+        <xs:element ref="ExitY"/>
+        <xs:element ref="ExitBackX"/>
+        <xs:element ref="ExitBackY"/>
+        <xs:element ref="ToDashDelay"/>
+        <xs:element ref="FromDashDelay"/>
+        <xs:element ref="FromBackDashDelay"/>
+      </xs:sequence>
+      <xs:attribute name="DodgeName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DodgeID" type="xs:integer"/>
+  <xs:element name="Set" type="xs:NCName"/>
+  <xs:element name="Direction" type="xs:NCName"/>
+  <xs:element name="AirType" type="xs:NCName"/>
+  <xs:element name="IsFast" type="xs:NCName"/>
+  <xs:element name="Duration" type="xs:integer"/>
+  <xs:element name="Recover" type="xs:integer"/>
+  <xs:element name="PostDodge" type="xs:integer"/>
+  <xs:element name="SpeedXFormula" type="xs:NCName"/>
+  <xs:element name="SpeedXMult" type="xs:decimal"/>
+  <xs:element name="SpeedXMaxMult" type="xs:decimal"/>
+  <xs:element name="SpeedYFormula" type="xs:NCName"/>
+  <xs:element name="SpeedYMult" type="xs:decimal"/>
+  <xs:element name="SpeedYMaxMult" type="xs:decimal"/>
+  <xs:element name="AccelXFormula" type="xs:NCName"/>
+  <xs:element name="AccelXMult" type="xs:decimal"/>
+  <xs:element name="AccelYFormula" type="xs:NCName"/>
+  <xs:element name="AccelYMult" type="xs:decimal"/>
+  <xs:element name="StartInvuln" type="xs:integer"/>
+  <xs:element name="Cooldown" type="xs:integer"/>
+  <xs:element name="CooldownGround" type="xs:integer"/>
+  <xs:element name="CooldownLanded" type="xs:integer"/>
+  <xs:element name="CancelStart" type="xs:integer"/>
+  <xs:element name="CancelLimit" type="xs:integer"/>
+  <xs:element name="ExitX" type="xs:decimal"/>
+  <xs:element name="ExitY" type="xs:decimal"/>
+  <xs:element name="ExitBackX" type="xs:decimal"/>
+  <xs:element name="ExitBackY" type="xs:decimal"/>
+  <xs:element name="ToDashDelay" type="xs:integer"/>
+  <xs:element name="FromDashDelay" type="xs:integer"/>
+  <xs:element name="FromBackDashDelay" type="xs:integer"/>
+</xs:schema>

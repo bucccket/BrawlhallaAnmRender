@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TrailEffectTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TrailEffectType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrailEffectType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TrailEffectID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="IconScale"/>
+        <xs:element minOccurs="0" ref="KOSound"/>
+        <xs:element ref="KOSoundEvent"/>
+        <xs:element minOccurs="0" ref="CheerDelay"/>
+        <xs:element minOccurs="0" ref="MirrorKO"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="UseCostume"/>
+          <xs:element ref="UseCustomHead"/>
+        </xs:sequence>
+        <xs:element ref="KOGfx"/>
+        <xs:element ref="TorsoGfx"/>
+        <xs:element ref="OpeningGfx"/>
+        <xs:element ref="ClosingGfx"/>
+        <xs:element ref="EmitterTypes"/>
+        <xs:element minOccurs="0" ref="OffsetStore"/>
+        <xs:element minOccurs="0" ref="OffsetStoreMini"/>
+        <xs:element minOccurs="0" ref="OffsetInventory"/>
+        <xs:element minOccurs="0" ref="OffsetPreviewer"/>
+      </xs:sequence>
+      <xs:attribute name="TrailEffectName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrailEffectID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="IconScale" type="xs:decimal"/>
+  <xs:element name="KOSound" type="xs:string"/>
+  <xs:element name="KOSoundEvent" type="xs:NCName"/>
+  <xs:element name="CheerDelay" type="xs:integer"/>
+  <xs:element name="MirrorKO" type="xs:NCName"/>
+  <xs:element name="UseCostume" type="xs:NCName"/>
+  <xs:element name="UseCustomHead" type="xs:NCName"/>
+  <xs:element name="KOGfx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="AnimClass"/>
+        <xs:element ref="AnimScale"/>
+        <xs:element minOccurs="0" ref="Tint"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TorsoGfx">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="AnimClass"/>
+        <xs:element ref="AnimScale"/>
+        <xs:element ref="Tint"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpeningGfx">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="AnimClass"/>
+        <xs:element ref="AnimScale"/>
+        <xs:element ref="Tint"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClosingGfx">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="AnimClass"/>
+        <xs:element ref="AnimScale"/>
+        <xs:element ref="Tint"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmitterTypes" type="xs:string"/>
+  <xs:element name="OffsetStore" type="xs:string"/>
+  <xs:element name="OffsetStoreMini" type="xs:string"/>
+  <xs:element name="OffsetInventory" type="xs:string"/>
+  <xs:element name="OffsetPreviewer" type="xs:string"/>
+  <xs:element name="AnimFile" type="xs:NCName"/>
+  <xs:element name="AnimClass" type="xs:NMTOKEN"/>
+  <xs:element name="AnimScale" type="xs:decimal"/>
+  <xs:element name="Tint" type="xs:string"/>
+</xs:schema>

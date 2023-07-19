@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="PlayerRankingTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="PRT"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PRT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="F"/>
+      </xs:sequence>
+      <xs:attribute name="b" type="xs:anyURI"/>
+      <xs:attribute name="e" use="required" type="xs:decimal"/>
+      <xs:attribute name="h" type="xs:anyURI"/>
+      <xs:attribute name="i" use="required" type="xs:integer"/>
+      <xs:attribute name="p" use="required"/>
+      <xs:attribute name="r" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="F">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="T"/>
+        <xs:element maxOccurs="unbounded" ref="P"/>
+      </xs:sequence>
+      <xs:attribute name="f" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="s" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="T">
+    <xs:complexType>
+      <xs:attribute name="c" use="required" type="xs:integer"/>
+      <xs:attribute name="v" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="P">
+    <xs:complexType>
+      <xs:attribute name="c" use="required" type="xs:integer"/>
+      <xs:attribute name="v" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

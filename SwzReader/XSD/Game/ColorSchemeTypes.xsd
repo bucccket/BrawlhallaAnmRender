@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ColorSchemeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ColorSchemeType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColorSchemeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ColorSchemeID"/>
+        <xs:element ref="DefaultUnlocked"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="IconName"/>
+        <xs:element ref="IconFileName"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="UniversalIconName"/>
+          <xs:element ref="UniversalIconFileName"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="OrderID"/>
+        <xs:element ref="Rarity"/>
+        <xs:element minOccurs="0" ref="TeamColor"/>
+        <xs:element minOccurs="0" ref="BroadcasterEnabled"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="HairLt_Swap"/>
+          <xs:element ref="Hair_Swap"/>
+          <xs:element ref="HairDk_Swap"/>
+          <xs:element ref="Body1VL_Swap"/>
+          <xs:element ref="Body1Lt_Swap"/>
+          <xs:element ref="Body1_Swap"/>
+          <xs:element ref="Body1Dk_Swap"/>
+          <xs:element ref="Body1VD_Swap"/>
+          <xs:element ref="Body1Acc_Swap"/>
+          <xs:element ref="Body2VL_Swap"/>
+          <xs:element ref="Body2Lt_Swap"/>
+          <xs:element ref="Body2_Swap"/>
+          <xs:element ref="Body2Dk_Swap"/>
+          <xs:element ref="Body2VD_Swap"/>
+          <xs:element ref="Body2Acc_Swap"/>
+          <xs:element ref="SpecialVL_Swap"/>
+          <xs:element ref="SpecialLt_Swap"/>
+          <xs:element ref="Special_Swap"/>
+          <xs:element ref="SpecialDk_Swap"/>
+          <xs:element ref="SpecialVD_Swap"/>
+          <xs:element ref="SpecialAcc_Swap"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="HandsLt_Swap"/>
+          <xs:element ref="HandsDk_Swap"/>
+          <xs:element ref="HandsSkinLt_Swap"/>
+          <xs:element ref="HandsSkinDk_Swap"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ClothVL_Swap"/>
+          <xs:element ref="ClothLt_Swap"/>
+          <xs:element ref="Cloth_Swap"/>
+          <xs:element ref="ClothDk_Swap"/>
+          <xs:element ref="WeaponVL_Swap"/>
+          <xs:element ref="WeaponLt_Swap"/>
+          <xs:element ref="Weapon_Swap"/>
+          <xs:element ref="WeaponDk_Swap"/>
+          <xs:element ref="WeaponAcc_Swap"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ExcludeOpponentTeamColor"/>
+          <xs:element ref="FallbackOpponentTeamColor"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="FallbackMyTeamColor"/>
+        <xs:element minOccurs="0" ref="IndicatorColor"/>
+      </xs:sequence>
+      <xs:attribute name="ColorSchemeName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColorSchemeID" type="xs:integer"/>
+  <xs:element name="DefaultUnlocked" type="xs:NMTOKEN"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="IconName" type="xs:NMTOKEN"/>
+  <xs:element name="IconFileName" type="xs:NCName"/>
+  <xs:element name="UniversalIconName" type="xs:NMTOKEN"/>
+  <xs:element name="UniversalIconFileName" type="xs:NCName"/>
+  <xs:element name="OrderID" type="xs:integer"/>
+  <xs:element name="Rarity" type="xs:NCName"/>
+  <xs:element name="TeamColor" type="xs:NMTOKEN"/>
+  <xs:element name="BroadcasterEnabled" type="xs:boolean"/>
+  <xs:element name="HairLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Hair_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="HairDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1VL_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1Lt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1Dk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1VD_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body1Acc_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2VL_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2Lt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2Dk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2VD_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Body2Acc_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialVL_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Special_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialVD_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="SpecialAcc_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="HandsLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="HandsDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="HandsSkinLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="HandsSkinDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="ClothVL_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="ClothLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Cloth_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="ClothDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="WeaponVL_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="WeaponLt_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="Weapon_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="WeaponDk_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="WeaponAcc_Swap" type="xs:NMTOKEN"/>
+  <xs:element name="ExcludeOpponentTeamColor" type="xs:string"/>
+  <xs:element name="FallbackOpponentTeamColor" type="xs:NMTOKEN"/>
+  <xs:element name="FallbackMyTeamColor" type="xs:NMTOKEN"/>
+  <xs:element name="IndicatorColor" type="xs:NMTOKEN"/>
+</xs:schema>

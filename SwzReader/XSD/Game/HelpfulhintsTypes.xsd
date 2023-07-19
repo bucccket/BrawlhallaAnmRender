@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="HelpfulhintsTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="HelpfulhintsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HelpfulhintsType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DescriptionKey"/>
+        <xs:element ref="Category"/>
+        <xs:element ref="Weight"/>
+        <xs:element ref="MinLevel"/>
+        <xs:element ref="MaxLevel"/>
+        <xs:element minOccurs="0" ref="PlatformRequirements"/>
+      </xs:sequence>
+      <xs:attribute name="HelpfulhintsName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="Category" type="xs:string"/>
+  <xs:element name="Weight" type="xs:NMTOKEN"/>
+  <xs:element name="MinLevel" type="xs:NMTOKEN"/>
+  <xs:element name="MaxLevel" type="xs:NMTOKEN"/>
+  <xs:element name="PlatformRequirements" type="xs:string"/>
+</xs:schema>

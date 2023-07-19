@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ChanceBoxTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ChanceBoxType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChanceBoxType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ChanceBoxID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="IdolCost"/>
+        <xs:element ref="CommonItems"/>
+        <xs:element ref="ExclusiveItems"/>
+        <xs:element minOccurs="0" ref="EndTime"/>
+        <xs:element ref="BoxAnimFile"/>
+        <xs:element ref="BoxAnimRig"/>
+        <xs:element minOccurs="0" ref="BoxCustomArt"/>
+        <xs:element ref="BoxPodiumAnimFile"/>
+        <xs:element ref="BoxPodiumAnimRig"/>
+        <xs:element minOccurs="0" ref="BoxPodiumCustomArt"/>
+        <xs:element ref="GridRows"/>
+        <xs:element ref="GridColumns"/>
+        <xs:element ref="OpeningEffectName"/>
+        <xs:element ref="OpeningEffectFileName"/>
+        <xs:element ref="LootFrameSuffix"/>
+        <xs:element ref="PlayRandomJitters"/>
+        <xs:element ref="OfferMessageKey"/>
+        <xs:element ref="SoundNameDropBox"/>
+        <xs:element ref="SoundEventDropBox"/>
+        <xs:element ref="SoundNameOpenBox"/>
+        <xs:element ref="SoundEventOpenBox"/>
+        <xs:element ref="SoundNameJitterBox1"/>
+        <xs:element ref="SoundEventJitterBox1"/>
+        <xs:element ref="SoundNameJitterBox2"/>
+        <xs:element ref="SoundEventJitterBox2"/>
+        <xs:element ref="SoundNameHoldBox1"/>
+        <xs:element ref="SoundEventHoldBox1"/>
+        <xs:element ref="SoundNameHoldRelease"/>
+        <xs:element ref="SoundEventHoldRelease"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SoundNameEmptyBox"/>
+          <xs:element ref="SoundEventEmptyBox"/>
+        </xs:sequence>
+        <xs:element ref="ArtTranslationOffset"/>
+        <xs:element ref="TileTypeTitleKey"/>
+        <xs:element minOccurs="0" ref="TileTypeDescriptionKey"/>
+        <xs:element ref="TileTypeImage"/>
+        <xs:element minOccurs="0" ref="SoundEventAmbient"/>
+        <xs:element minOccurs="0" ref="SoundNameAmbient"/>
+      </xs:sequence>
+      <xs:attribute name="ChanceBoxName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChanceBoxID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:NCName"/>
+  <xs:element name="IdolCost" type="xs:integer"/>
+  <xs:element name="CommonItems" type="xs:string"/>
+  <xs:element name="ExclusiveItems" type="xs:string"/>
+  <xs:element name="EndTime" type="xs:integer"/>
+  <xs:element name="BoxAnimFile" type="xs:NMTOKEN"/>
+  <xs:element name="BoxAnimRig" type="xs:NMTOKEN"/>
+  <xs:element name="BoxCustomArt" type="xs:NMTOKEN"/>
+  <xs:element name="BoxPodiumAnimFile" type="xs:NMTOKEN"/>
+  <xs:element name="BoxPodiumAnimRig" type="xs:NMTOKEN"/>
+  <xs:element name="BoxPodiumCustomArt" type="xs:NMTOKEN"/>
+  <xs:element name="GridRows" type="xs:integer"/>
+  <xs:element name="GridColumns" type="xs:integer"/>
+  <xs:element name="OpeningEffectName" type="xs:NMTOKEN"/>
+  <xs:element name="OpeningEffectFileName" type="xs:NMTOKEN"/>
+  <xs:element name="LootFrameSuffix" type="xs:NMTOKEN"/>
+  <xs:element name="PlayRandomJitters" type="xs:boolean"/>
+  <xs:element name="OfferMessageKey" type="xs:string"/>
+  <xs:element name="SoundNameDropBox" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventDropBox" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameOpenBox" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventOpenBox" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameJitterBox1" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventJitterBox1" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameJitterBox2" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventJitterBox2" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameHoldBox1" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventHoldBox1" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameHoldRelease" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventHoldRelease" type="xs:NMTOKEN"/>
+  <xs:element name="SoundNameEmptyBox" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventEmptyBox" type="xs:NMTOKEN"/>
+  <xs:element name="ArtTranslationOffset" type="xs:string"/>
+  <xs:element name="TileTypeTitleKey" type="xs:NMTOKEN"/>
+  <xs:element name="TileTypeDescriptionKey" type="xs:NMTOKEN"/>
+  <xs:element name="TileTypeImage" type="xs:NMTOKEN"/>
+  <xs:element name="SoundEventAmbient" type="xs:string"/>
+  <xs:element name="SoundNameAmbient" type="xs:string"/>
+</xs:schema>

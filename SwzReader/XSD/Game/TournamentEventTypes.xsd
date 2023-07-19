@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TournamentEventTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TournamentEventType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TournamentEventType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Title"/>
+        <xs:element ref="RegistrationEnds"/>
+        <xs:element ref="StartTime"/>
+        <xs:element ref="StreamTime"/>
+        <xs:element ref="EndTime"/>
+        <xs:element ref="PrizePool"/>
+        <xs:element ref="IconImageName"/>
+        <xs:element ref="IsOfficial"/>
+        <xs:element ref="IsFeatured"/>
+        <xs:element ref="IsPinned"/>
+        <xs:element ref="RegistrationURL"/>
+        <xs:element ref="LiveStreamURL"/>
+        <xs:element ref="Location"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Title" type="xs:string"/>
+  <xs:element name="RegistrationEnds" type="xs:integer"/>
+  <xs:element name="StartTime" type="xs:integer"/>
+  <xs:element name="StreamTime" type="xs:integer"/>
+  <xs:element name="EndTime" type="xs:integer"/>
+  <xs:element name="PrizePool" type="xs:integer"/>
+  <xs:element name="IconImageName" type="xs:NCName"/>
+  <xs:element name="IsOfficial" type="xs:NCName"/>
+  <xs:element name="IsFeatured" type="xs:NCName"/>
+  <xs:element name="IsPinned" type="xs:NCName"/>
+  <xs:element name="RegistrationURL" type="xs:anyURI"/>
+  <xs:element name="LiveStreamURL" type="xs:anyURI"/>
+  <xs:element name="Location" type="xs:string"/>
+</xs:schema>

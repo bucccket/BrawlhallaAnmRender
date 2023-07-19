@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="SplashArtTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SplashArtType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SplashArtType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SplashArtID"/>
+        <xs:element ref="AnimRig"/>
+        <xs:element minOccurs="0" ref="AnimCustomArt"/>
+        <xs:element ref="UITextHeaderKey"/>
+        <xs:element ref="UITextFooterKey"/>
+        <xs:element minOccurs="0" ref="ShouldHideButton"/>
+      </xs:sequence>
+      <xs:attribute name="SplashArtName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SplashArtID" type="xs:integer"/>
+  <xs:element name="AnimRig" type="xs:NCName"/>
+  <xs:element name="AnimCustomArt" type="xs:NCName"/>
+  <xs:element name="UITextHeaderKey" type="xs:NCName"/>
+  <xs:element name="UITextFooterKey" type="xs:NCName"/>
+  <xs:element name="ShouldHideButton" type="xs:string"/>
+</xs:schema>

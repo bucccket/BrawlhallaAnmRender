@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="EntitlementTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EntitlementType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EntitlementType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EntitlementID"/>
+        <xs:element minOccurs="0" ref="SteamAppID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SonyEntitlementID"/>
+          <xs:element ref="SonyProductID"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="NintendoConsumableID"/>
+          <xs:element ref="NintendoEntitlementID"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="XB1EntitlementID"/>
+        <xs:element minOccurs="0" ref="XB1ProductID"/>
+        <xs:element minOccurs="0" ref="AppleEntitlementID"/>
+        <xs:element minOccurs="0" ref="AndroidEntitlementID"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="UbiConnectID"/>
+          <xs:element ref="UbiConnectPackageID"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="Idols"/>
+        <xs:element minOccurs="0" ref="Featured"/>
+        <xs:element minOccurs="0" ref="AllLegends"/>
+        <xs:element minOccurs="0" ref="BattlePassSeason"/>
+        <xs:element minOccurs="0" ref="GrantsBetaHeroes"/>
+        <xs:element minOccurs="0" ref="IncludesRewardsFrom"/>
+        <xs:element minOccurs="0" ref="RequiresEntitlement"/>
+        <xs:element minOccurs="0" ref="Costumes"/>
+        <xs:element minOccurs="0" ref="Avatars"/>
+        <xs:element minOccurs="0" ref="SpawnBot"/>
+        <xs:element minOccurs="0" ref="PlayerTheme"/>
+        <xs:element minOccurs="0" ref="TrailEffect"/>
+        <xs:element minOccurs="0" ref="UniversalColorScheme"/>
+        <xs:element minOccurs="0" ref="Taunt"/>
+        <xs:element minOccurs="0" ref="WeaponSkins"/>
+        <xs:element minOccurs="0" ref="Emojis"/>
+        <xs:element minOccurs="0" ref="EquipItems"/>
+        <xs:element minOccurs="0" ref="AllowTryingRewardsInTraining"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="DisplayNameKey"/>
+          <xs:element ref="DescriptionKey"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="PurchaseConfirmAnim"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="PopUpImage"/>
+          <xs:element ref="PopUpHeader"/>
+          <xs:element ref="PopUpDescription"/>
+          <xs:element ref="PopUpOptional"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="EntitlementName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EntitlementID" type="xs:integer"/>
+  <xs:element name="SteamAppID" type="xs:integer"/>
+  <xs:element name="SonyEntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="SonyProductID" type="xs:NMTOKEN"/>
+  <xs:element name="NintendoConsumableID" type="xs:NMTOKEN"/>
+  <xs:element name="NintendoEntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="XB1EntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="XB1ProductID" type="xs:NMTOKEN"/>
+  <xs:element name="AppleEntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="AndroidEntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="UbiConnectID" type="xs:NMTOKEN"/>
+  <xs:element name="UbiConnectPackageID" type="xs:NMTOKEN"/>
+  <xs:element name="Idols" type="xs:integer"/>
+  <xs:element name="Featured" type="xs:boolean"/>
+  <xs:element name="AllLegends" type="xs:boolean"/>
+  <xs:element name="BattlePassSeason" type="xs:integer"/>
+  <xs:element name="GrantsBetaHeroes" type="xs:boolean"/>
+  <xs:element name="IncludesRewardsFrom" type="xs:string"/>
+  <xs:element name="RequiresEntitlement" type="xs:string"/>
+  <xs:element name="Costumes" type="xs:string"/>
+  <xs:element name="Avatars" type="xs:string"/>
+  <xs:element name="SpawnBot" type="xs:NMTOKEN"/>
+  <xs:element name="PlayerTheme" type="xs:NMTOKEN"/>
+  <xs:element name="TrailEffect" type="xs:NMTOKEN"/>
+  <xs:element name="UniversalColorScheme" type="xs:NMTOKEN"/>
+  <xs:element name="Taunt" type="xs:NMTOKEN"/>
+  <xs:element name="WeaponSkins" type="xs:string"/>
+  <xs:element name="Emojis" type="xs:string"/>
+  <xs:element name="EquipItems" type="xs:boolean"/>
+  <xs:element name="AllowTryingRewardsInTraining" type="xs:boolean"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="PurchaseConfirmAnim" type="xs:string"/>
+  <xs:element name="PopUpImage" type="xs:string"/>
+  <xs:element name="PopUpHeader" type="xs:string"/>
+  <xs:element name="PopUpDescription" type="xs:string"/>
+  <xs:element name="PopUpOptional" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ClientThemeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ClientThemeType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientThemeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ClientThemeID"/>
+        <xs:element ref="AnimRig"/>
+        <xs:element minOccurs="0" ref="AnimCustomArt"/>
+        <xs:element minOccurs="0" ref="BackgroundArt"/>
+        <xs:element minOccurs="0" ref="BackgroundClouds"/>
+        <xs:element minOccurs="0" ref="LimitBackgroundArtToMainMenu"/>
+        <xs:element minOccurs="0" ref="TileAccent"/>
+        <xs:element ref="ArtFileName"/>
+        <xs:element minOccurs="0" ref="MainMenuAccent"/>
+        <xs:element ref="MainMenuButtonPlay"/>
+        <xs:element ref="MainMenuButtonBotW"/>
+        <xs:element ref="MainMenuButtonCustomLobby"/>
+        <xs:element ref="MainMenuButtonRanked"/>
+        <xs:element ref="MainMenuButtonOffline"/>
+        <xs:element ref="MainMenuButtonLegends"/>
+        <xs:element ref="MainMenuButtonStore"/>
+        <xs:element ref="MainMenuButtonBattlePass"/>
+        <xs:element ref="LoginBonusFrame"/>
+        <xs:element minOccurs="0" ref="LoginBonusIconAnimation"/>
+        <xs:element ref="LoginBonusDoneButtonYPos"/>
+        <xs:element minOccurs="0" ref="LoginBonusStringKey"/>
+        <xs:element minOccurs="0" ref="StoreTabsAccent"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="MatchPreviewKnot"/>
+          <xs:element ref="MatchPreviewHistoryTextColor"/>
+        </xs:sequence>
+        <xs:element ref="SplashArtTypeName"/>
+        <xs:element ref="SplashArtUIScreen"/>
+        <xs:element minOccurs="0" ref="HolidayRibbonLabel"/>
+        <xs:element minOccurs="0" ref="MainMenuMusic"/>
+        <xs:element minOccurs="0" ref="CharSelectMusic"/>
+        <xs:element minOccurs="0" ref="WinThemeMusic"/>
+        <xs:element minOccurs="0" ref="WelcomeAnnouncer"/>
+      </xs:sequence>
+      <xs:attribute name="ClientThemeName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientThemeID" type="xs:integer"/>
+  <xs:element name="AnimRig" type="xs:NCName"/>
+  <xs:element name="AnimCustomArt" type="xs:NMTOKEN"/>
+  <xs:element name="BackgroundArt" type="xs:string"/>
+  <xs:element name="BackgroundClouds" type="xs:NMTOKEN"/>
+  <xs:element name="LimitBackgroundArtToMainMenu" type="xs:boolean"/>
+  <xs:element name="TileAccent" type="xs:NMTOKEN"/>
+  <xs:element name="ArtFileName" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuAccent" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonPlay" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonBotW" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonCustomLobby" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonRanked" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonOffline" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonLegends" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonStore" type="xs:NMTOKEN"/>
+  <xs:element name="MainMenuButtonBattlePass" type="xs:NMTOKEN"/>
+  <xs:element name="LoginBonusFrame" type="xs:NMTOKEN"/>
+  <xs:element name="LoginBonusIconAnimation" type="xs:NMTOKEN"/>
+  <xs:element name="LoginBonusDoneButtonYPos" type="xs:integer"/>
+  <xs:element name="LoginBonusStringKey" type="xs:string"/>
+  <xs:element name="StoreTabsAccent" type="xs:NMTOKEN"/>
+  <xs:element name="MatchPreviewKnot" type="xs:string"/>
+  <xs:element name="MatchPreviewHistoryTextColor" type="xs:string"/>
+  <xs:element name="SplashArtTypeName" type="xs:NMTOKEN"/>
+  <xs:element name="SplashArtUIScreen" type="xs:NMTOKEN"/>
+  <xs:element name="HolidayRibbonLabel" type="xs:string"/>
+  <xs:element name="MainMenuMusic" type="xs:NMTOKEN"/>
+  <xs:element name="CharSelectMusic" type="xs:NMTOKEN"/>
+  <xs:element name="WinThemeMusic" type="xs:NMTOKEN"/>
+  <xs:element name="WelcomeAnnouncer" type="xs:NMTOKEN"/>
+</xs:schema>

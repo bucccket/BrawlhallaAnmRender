@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TimedEventTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TimedEventType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TimedEventType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TimedEventID"/>
+        <xs:element ref="ClientThemeName"/>
+        <xs:element minOccurs="0" ref="LoginBonus"/>
+        <xs:element minOccurs="0" ref="LoginPromoRewards"/>
+        <xs:element minOccurs="0" ref="LoginPromoHeaderKeys"/>
+        <xs:element minOccurs="0" ref="WinAndEarnColorScheme"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="GrantUniversalColorForWinningWithAllLegends"/>
+          <xs:element ref="ProgressUIHeaderKey"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="ActiveMission1"/>
+      </xs:sequence>
+      <xs:attribute name="TimedEventName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TimedEventID" type="xs:integer"/>
+  <xs:element name="ClientThemeName" type="xs:NMTOKEN"/>
+  <xs:element name="LoginBonus" type="xs:integer"/>
+  <xs:element name="LoginPromoRewards" type="xs:string"/>
+  <xs:element name="LoginPromoHeaderKeys" type="xs:string"/>
+  <xs:element name="WinAndEarnColorScheme" type="xs:NMTOKEN"/>
+  <xs:element name="GrantUniversalColorForWinningWithAllLegends" type="xs:boolean"/>
+  <xs:element name="ProgressUIHeaderKey" type="xs:NMTOKEN"/>
+  <xs:element name="ActiveMission1" type="xs:NMTOKEN"/>
+</xs:schema>

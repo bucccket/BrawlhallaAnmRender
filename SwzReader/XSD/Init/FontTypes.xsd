@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="FontTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="FontType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FontType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EnglishFamily"/>
+        <xs:element ref="EnglishSize"/>
+        <xs:element ref="ChineseTraditionalFamily"/>
+        <xs:element ref="ChineseTraditionalSize"/>
+        <xs:element ref="ChineseSimplifiedFamily"/>
+        <xs:element ref="ChineseSimplifiedSize"/>
+        <xs:element ref="FrenchFamily"/>
+        <xs:element ref="FrenchSize"/>
+        <xs:element ref="GermanFamily"/>
+        <xs:element ref="GermanSize"/>
+        <xs:element ref="ItalianFamily"/>
+        <xs:element ref="ItalianSize"/>
+        <xs:element ref="JapaneseFamily"/>
+        <xs:element ref="JapaneseSize"/>
+        <xs:element ref="PortugueseFamily"/>
+        <xs:element ref="PortugueseSize"/>
+        <xs:element ref="RussianFamily"/>
+        <xs:element ref="RussianSize"/>
+        <xs:element ref="SpanishFamily"/>
+        <xs:element ref="SpanishSize"/>
+        <xs:element ref="KoreanFamily"/>
+        <xs:element ref="KoreanSize"/>
+      </xs:sequence>
+      <xs:attribute name="FontCategory" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnglishFamily" type="xs:string"/>
+  <xs:element name="EnglishSize" type="xs:integer"/>
+  <xs:element name="ChineseTraditionalFamily" type="xs:string"/>
+  <xs:element name="ChineseTraditionalSize" type="xs:integer"/>
+  <xs:element name="ChineseSimplifiedFamily" type="xs:string"/>
+  <xs:element name="ChineseSimplifiedSize" type="xs:integer"/>
+  <xs:element name="FrenchFamily" type="xs:string"/>
+  <xs:element name="FrenchSize" type="xs:integer"/>
+  <xs:element name="GermanFamily" type="xs:string"/>
+  <xs:element name="GermanSize" type="xs:integer"/>
+  <xs:element name="ItalianFamily" type="xs:string"/>
+  <xs:element name="ItalianSize" type="xs:integer"/>
+  <xs:element name="JapaneseFamily" type="xs:string"/>
+  <xs:element name="JapaneseSize" type="xs:integer"/>
+  <xs:element name="PortugueseFamily" type="xs:string"/>
+  <xs:element name="PortugueseSize" type="xs:integer"/>
+  <xs:element name="RussianFamily" type="xs:string"/>
+  <xs:element name="RussianSize" type="xs:integer"/>
+  <xs:element name="SpanishFamily" type="xs:string"/>
+  <xs:element name="SpanishSize" type="xs:integer"/>
+  <xs:element name="KoreanFamily" type="xs:string"/>
+  <xs:element name="KoreanSize" type="xs:integer"/>
+</xs:schema>

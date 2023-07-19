@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="SpawnBotTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SpawnBotType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpawnBotType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SpawnBotID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="IconName"/>
+        <xs:element ref="IconFileName"/>
+        <xs:element ref="GfxType"/>
+        <xs:element ref="TooltipOffsetX"/>
+        <xs:element ref="TooltipOffsetY"/>
+        <xs:element ref="TooltipScale"/>
+        <xs:element ref="TooltipMiniOffsetX"/>
+        <xs:element ref="TooltipMiniOffsetY"/>
+        <xs:element ref="TooltipMiniScale"/>
+        <xs:element ref="StorePreviewerOffsetX"/>
+        <xs:element ref="StorePreviewerOffsetY"/>
+        <xs:element ref="StorePreviewerScale"/>
+        <xs:element ref="InventoryOffsetX"/>
+        <xs:element ref="InventoryOffsetY"/>
+        <xs:element ref="InventoryScale"/>
+      </xs:sequence>
+      <xs:attribute name="SpawnBotName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SpawnBotID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="IconName" type="xs:NCName"/>
+  <xs:element name="IconFileName" type="xs:NCName"/>
+  <xs:element name="GfxType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AnimClass"/>
+        <xs:element ref="AnimFile"/>
+        <xs:element ref="CustomArt"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnimClass" type="xs:NCName"/>
+  <xs:element name="AnimFile" type="xs:NCName"/>
+  <xs:element name="CustomArt" type="xs:string"/>
+  <xs:element name="TooltipOffsetX" type="xs:integer"/>
+  <xs:element name="TooltipOffsetY" type="xs:integer"/>
+  <xs:element name="TooltipScale" type="xs:decimal"/>
+  <xs:element name="TooltipMiniOffsetX" type="xs:integer"/>
+  <xs:element name="TooltipMiniOffsetY" type="xs:integer"/>
+  <xs:element name="TooltipMiniScale" type="xs:decimal"/>
+  <xs:element name="StorePreviewerOffsetX" type="xs:integer"/>
+  <xs:element name="StorePreviewerOffsetY" type="xs:integer"/>
+  <xs:element name="StorePreviewerScale" type="xs:decimal"/>
+  <xs:element name="InventoryOffsetX" type="xs:integer"/>
+  <xs:element name="InventoryOffsetY" type="xs:integer"/>
+  <xs:element name="InventoryScale" type="xs:decimal"/>
+</xs:schema>

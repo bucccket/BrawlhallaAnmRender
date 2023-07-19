@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="AchievementTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="AchievementType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AchievementType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SteamLinkageName"/>
+        <xs:element ref="AchievementID"/>
+        <xs:element minOccurs="0" ref="CompleteAsBool"/>
+        <xs:element minOccurs="0" ref="CompleteAtOnce"/>
+        <xs:element minOccurs="0" ref="TrackOffline"/>
+        <xs:element ref="SuccessCount"/>
+        <xs:element minOccurs="0" ref="Event1"/>
+        <xs:element minOccurs="0" ref="Event2"/>
+        <xs:element minOccurs="0" ref="Event3"/>
+        <xs:element minOccurs="0" ref="Event4"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event5"/>
+          <xs:element ref="Event6"/>
+          <xs:element ref="Event7"/>
+          <xs:element ref="Event8"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="AchievementName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SteamLinkageName" type="xs:NCName"/>
+  <xs:element name="AchievementID" type="xs:integer"/>
+  <xs:element name="CompleteAsBool" type="xs:NCName"/>
+  <xs:element name="CompleteAtOnce" type="xs:NCName"/>
+  <xs:element name="TrackOffline" type="xs:NCName"/>
+  <xs:element name="SuccessCount" type="xs:integer"/>
+  <xs:element name="Event1" type="xs:NMTOKEN"/>
+  <xs:element name="Event2" type="xs:NMTOKEN"/>
+  <xs:element name="Event3" type="xs:NMTOKEN"/>
+  <xs:element name="Event4" type="xs:NMTOKEN"/>
+  <xs:element name="Event5" type="xs:NMTOKEN"/>
+  <xs:element name="Event6" type="xs:NMTOKEN"/>
+  <xs:element name="Event7" type="xs:NMTOKEN"/>
+  <xs:element name="Event8" type="xs:NMTOKEN"/>
+</xs:schema>

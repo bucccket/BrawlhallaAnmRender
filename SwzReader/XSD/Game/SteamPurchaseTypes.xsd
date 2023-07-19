@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="SteamPurchaseTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SteamPurchaseType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SteamPurchaseType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ItemID"/>
+        <xs:element ref="AppID"/>
+        <xs:element ref="Language"/>
+        <xs:element ref="Description"/>
+        <xs:element ref="Icon"/>
+        <xs:element ref="Category"/>
+        <xs:element ref="Idols"/>
+        <xs:element ref="BonusText"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SaleTag"/>
+          <xs:element ref="ParentName"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="SIEA"/>
+          <xs:element ref="EntitlementID"/>
+          <xs:element ref="NintendoItemID"/>
+          <xs:element ref="MicrosoftID"/>
+          <xs:element ref="AppleID"/>
+          <xs:element ref="AndroidID"/>
+          <xs:element ref="UbiConnectID"/>
+          <xs:element ref="UbiConnectEntitlementID"/>
+        </xs:sequence>
+        <xs:element ref="USD"/>
+        <xs:element ref="GBP"/>
+        <xs:element ref="EUR"/>
+        <xs:element ref="RUB"/>
+        <xs:element ref="BRL"/>
+        <xs:element ref="JPY"/>
+        <xs:element ref="NOK"/>
+        <xs:element ref="IDR"/>
+        <xs:element ref="MYR"/>
+        <xs:element ref="PHP"/>
+        <xs:element ref="SGD"/>
+        <xs:element ref="THB"/>
+        <xs:element ref="KRW"/>
+        <xs:element ref="TRY"/>
+        <xs:element ref="UAH"/>
+        <xs:element ref="MXN"/>
+        <xs:element ref="CAD"/>
+        <xs:element ref="AUD"/>
+        <xs:element ref="NZD"/>
+        <xs:element ref="CNY"/>
+        <xs:element ref="INR"/>
+        <xs:element ref="HKD"/>
+        <xs:element ref="TWD"/>
+      </xs:sequence>
+      <xs:attribute name="SteamPurchaseName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ItemID" type="xs:integer"/>
+  <xs:element name="AppID" type="xs:integer"/>
+  <xs:element name="Language" type="xs:NCName"/>
+  <xs:element name="Description" type="xs:string"/>
+  <xs:element name="Icon" type="xs:NCName"/>
+  <xs:element name="Category" type="xs:NCName"/>
+  <xs:element name="Idols" type="xs:integer"/>
+  <xs:element name="BonusText" type="xs:integer"/>
+  <xs:element name="SaleTag" type="xs:NCName"/>
+  <xs:element name="ParentName" type="xs:NCName"/>
+  <xs:element name="SIEA" type="xs:NCName"/>
+  <xs:element name="EntitlementID" type="xs:NCName"/>
+  <xs:element name="NintendoItemID" type="xs:NMTOKEN"/>
+  <xs:element name="MicrosoftID" type="xs:NMTOKEN"/>
+  <xs:element name="AppleID" type="xs:NCName"/>
+  <xs:element name="AndroidID" type="xs:NCName"/>
+  <xs:element name="UbiConnectID" type="xs:NMTOKEN"/>
+  <xs:element name="UbiConnectEntitlementID" type="xs:NMTOKEN"/>
+  <xs:element name="USD" type="xs:integer"/>
+  <xs:element name="GBP" type="xs:integer"/>
+  <xs:element name="EUR" type="xs:integer"/>
+  <xs:element name="RUB" type="xs:integer"/>
+  <xs:element name="BRL" type="xs:integer"/>
+  <xs:element name="JPY" type="xs:integer"/>
+  <xs:element name="NOK" type="xs:integer"/>
+  <xs:element name="IDR" type="xs:integer"/>
+  <xs:element name="MYR" type="xs:integer"/>
+  <xs:element name="PHP" type="xs:integer"/>
+  <xs:element name="SGD" type="xs:integer"/>
+  <xs:element name="THB" type="xs:integer"/>
+  <xs:element name="KRW" type="xs:integer"/>
+  <xs:element name="TRY" type="xs:integer"/>
+  <xs:element name="UAH" type="xs:integer"/>
+  <xs:element name="MXN" type="xs:integer"/>
+  <xs:element name="CAD" type="xs:integer"/>
+  <xs:element name="AUD" type="xs:integer"/>
+  <xs:element name="NZD" type="xs:integer"/>
+  <xs:element name="CNY" type="xs:integer"/>
+  <xs:element name="INR" type="xs:integer"/>
+  <xs:element name="HKD" type="xs:integer"/>
+  <xs:element name="TWD" type="xs:integer"/>
+</xs:schema>

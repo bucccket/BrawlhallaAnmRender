@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TauntTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TauntType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TauntType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TauntID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="PowerName"/>
+        <xs:element minOccurs="0" ref="UsesSpawnbot"/>
+        <xs:element minOccurs="0" ref="OwnedIfOwns"/>
+        <xs:element minOccurs="0" ref="RandomPowers"/>
+        <xs:element minOccurs="0" ref="UIOverridePowerName"/>
+        <xs:element minOccurs="0" ref="OffsetStore"/>
+        <xs:element minOccurs="0" ref="OffsetStoreMini"/>
+        <xs:element minOccurs="0" ref="OffsetInventory"/>
+      </xs:sequence>
+      <xs:attribute name="DevOnly" type="xs:boolean"/>
+      <xs:attribute name="TauntName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TauntID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="PowerName" type="xs:NCName"/>
+  <xs:element name="UsesSpawnbot" type="xs:NCName"/>
+  <xs:element name="OwnedIfOwns" type="xs:string"/>
+  <xs:element name="RandomPowers" type="xs:string"/>
+  <xs:element name="UIOverridePowerName" type="xs:NMTOKEN"/>
+  <xs:element name="OffsetStore" type="xs:string"/>
+  <xs:element name="OffsetStoreMini" type="xs:string"/>
+  <xs:element name="OffsetInventory" type="xs:string"/>
+</xs:schema>

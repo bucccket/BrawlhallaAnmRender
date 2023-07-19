@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="CustomGameTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="CustomGameType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomGameType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CustomGameID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:element ref="CharSelectHeaderKey"/>
+        <xs:element ref="IconName"/>
+        <xs:element minOccurs="0" ref="ForcedGameModeType"/>
+        <xs:element minOccurs="0" ref="LevelSelectModes"/>
+        <xs:element minOccurs="0" ref="AllowBots"/>
+        <xs:element minOccurs="0" ref="OverrideMinPlayers"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="BanRandom"/>
+          <xs:element ref="Tournament"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="CustomGameName" use="required" type="xs:NCName"/>
+      <xs:attribute name="Enabled" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomGameID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="CharSelectHeaderKey" type="xs:string"/>
+  <xs:element name="IconName" type="xs:NCName"/>
+  <xs:element name="ForcedGameModeType" type="xs:NMTOKEN"/>
+  <xs:element name="LevelSelectModes" type="xs:string"/>
+  <xs:element name="AllowBots" type="xs:NCName"/>
+  <xs:element name="OverrideMinPlayers" type="xs:integer"/>
+  <xs:element name="BanRandom" type="xs:NCName"/>
+  <xs:element name="Tournament" type="xs:NCName"/>
+</xs:schema>

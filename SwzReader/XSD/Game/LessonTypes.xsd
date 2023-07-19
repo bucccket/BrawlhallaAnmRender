@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="LessonTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="LessonType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LessonType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LessonID"/>
+        <xs:element minOccurs="0" ref="Prerequisite"/>
+        <xs:element minOccurs="0" ref="TitleKey"/>
+        <xs:element ref="DescriptionKey"/>
+        <xs:element ref="LevelType"/>
+        <xs:element minOccurs="0" ref="TimeLimit"/>
+        <xs:element ref="WinCondition"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="ComboMode"/>
+          <xs:element ref="Difficulty"/>
+        </xs:choice>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="NodeSpread"/>
+          <xs:element ref="NodePathLength"/>
+        </xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Entity"/>
+        <xs:element minOccurs="0" ref="Marker"/>
+        <xs:element minOccurs="0" ref="Item"/>
+        <xs:element minOccurs="0" ref="Combo"/>
+      </xs:sequence>
+      <xs:attribute name="LessonName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LessonID" type="xs:integer"/>
+  <xs:element name="Prerequisite" type="xs:string"/>
+  <xs:element name="TitleKey" type="xs:NCName"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="LevelType" type="xs:NMTOKEN"/>
+  <xs:element name="TimeLimit" type="xs:integer"/>
+  <xs:element name="WinCondition" type="xs:NMTOKEN"/>
+  <xs:element name="ComboMode" type="xs:NCName"/>
+  <xs:element name="Difficulty" type="xs:integer"/>
+  <xs:element name="NodeSpread" type="xs:integer"/>
+  <xs:element name="NodePathLength" type="xs:integer"/>
+  <xs:element name="Entity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="HeroType"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="CostumeType"/>
+          <xs:element ref="WeaponIndex"/>
+        </xs:sequence>
+        <xs:element ref="Position"/>
+        <xs:element minOccurs="0" ref="FacingLeft"/>
+        <xs:element minOccurs="0" ref="StartingDamage"/>
+      </xs:sequence>
+      <xs:attribute name="Role" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HeroType" type="xs:NMTOKEN"/>
+  <xs:element name="CostumeType" type="xs:NCName"/>
+  <xs:element name="WeaponIndex" type="xs:integer"/>
+  <xs:element name="FacingLeft" type="xs:boolean"/>
+  <xs:element name="StartingDamage" type="xs:integer"/>
+  <xs:element name="Marker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Position"/>
+        <xs:element ref="TriggerDuration"/>
+        <xs:element ref="Dimensions"/>
+      </xs:sequence>
+      <xs:attribute name="OrderID" use="required" type="xs:integer"/>
+      <xs:attribute name="Type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TriggerDuration" type="xs:integer"/>
+  <xs:element name="Dimensions" type="xs:string"/>
+  <xs:element name="Item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Position"/>
+      </xs:sequence>
+      <xs:attribute name="ItemType" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Combo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Pickup"/>
+          <xs:element ref="Throw"/>
+        </xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="ActiveInput"/>
+          <xs:element ref="Dash"/>
+          <xs:element ref="Dodge"/>
+          <xs:element ref="Jump"/>
+          <xs:element ref="PowerCast"/>
+          <xs:element ref="PowerEnd"/>
+          <xs:element ref="PowerHit"/>
+        </xs:choice>
+        <xs:element ref="forgiveness"/>
+        <xs:element ref="showStun"/>
+        <xs:element ref="resetBot"/>
+        <xs:element minOccurs="0" ref="replayEnd"/>
+        <xs:element ref="demoRecording"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Pickup">
+    <xs:complexType>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Throw">
+    <xs:complexType>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActiveInput">
+    <xs:complexType>
+      <xs:attribute name="CmdOvr" type="xs:integer"/>
+      <xs:attribute name="Data" use="required" type="xs:integer"/>
+      <xs:attribute name="Flags" use="required" type="xs:integer"/>
+      <xs:attribute name="Hint" type="xs:NCName"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dash">
+    <xs:complexType>
+      <xs:attribute name="Data" use="required" type="xs:integer"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dodge">
+    <xs:complexType>
+      <xs:attribute name="Data" type="xs:integer"/>
+      <xs:attribute name="Eval" type="xs:NCName"/>
+      <xs:attribute name="Flags" type="xs:integer"/>
+      <xs:attribute name="Hint" type="xs:NCName"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Jump">
+    <xs:complexType>
+      <xs:attribute name="Eval"/>
+      <xs:attribute name="Flags" type="xs:integer"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PowerCast">
+    <xs:complexType>
+      <xs:attribute name="Data" use="required"/>
+      <xs:attribute name="Eval"/>
+      <xs:attribute name="Flags" type="xs:integer"/>
+      <xs:attribute name="Hint" type="xs:NCName"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PowerEnd">
+    <xs:complexType>
+      <xs:attribute name="Data" use="required"/>
+      <xs:attribute name="Eval" use="required"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PowerHit">
+    <xs:complexType>
+      <xs:attribute name="CmdOvr" type="xs:integer"/>
+      <xs:attribute name="Data" use="required"/>
+      <xs:attribute name="Eval"/>
+      <xs:attribute name="Flags" type="xs:integer"/>
+      <xs:attribute name="Hint" type="xs:NCName"/>
+      <xs:attribute name="Time" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="forgiveness" type="xs:integer"/>
+  <xs:element name="showStun" type="xs:boolean"/>
+  <xs:element name="resetBot" type="xs:boolean"/>
+  <xs:element name="replayEnd" type="xs:integer"/>
+  <xs:element name="demoRecording" type="xs:string"/>
+  <xs:element name="Position" type="xs:string"/>
+</xs:schema>

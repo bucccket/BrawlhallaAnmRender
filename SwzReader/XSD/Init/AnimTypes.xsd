@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="AnimTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="AnimType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnimType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FileName"/>
+        <xs:element minOccurs="0" ref="HasCombat"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="HasTaunts"/>
+          <xs:element ref="IsThrowable"/>
+          <xs:element ref="IsWeapon"/>
+        </xs:choice>
+        <xs:element maxOccurs="unbounded" ref="Anim"/>
+      </xs:sequence>
+      <xs:attribute name="ClassName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" type="xs:NCName"/>
+  <xs:element name="HasCombat" type="xs:NCName"/>
+  <xs:element name="HasTaunts" type="xs:NCName"/>
+  <xs:element name="IsThrowable" type="xs:NCName"/>
+  <xs:element name="IsWeapon" type="xs:NCName"/>
+  <xs:element name="Anim" type="xs:NMTOKEN"/>
+</xs:schema>

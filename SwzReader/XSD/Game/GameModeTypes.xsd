@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="GameModeTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="GameModeType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameModeType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="GameModeID"/>
+        <xs:element ref="DisplayNameKey"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="CompetitiveLevelSet"/>
+          <xs:element ref="DamageRatio"/>
+          <xs:element ref="DescriptionKey"/>
+          <xs:element ref="Duration"/>
+          <xs:element ref="FixedCamera"/>
+          <xs:element ref="ForceCrewBattleCycle"/>
+          <xs:element ref="GadgetsOff"/>
+          <xs:element ref="GameSpeed"/>
+          <xs:element ref="GhostRule"/>
+          <xs:element ref="LevelSet"/>
+          <xs:element ref="MaxPlayers"/>
+          <xs:element ref="RoundDuration"/>
+          <xs:element ref="ScoreToWin"/>
+          <xs:element ref="ScoringType"/>
+          <xs:element ref="StartingLives"/>
+          <xs:element ref="TeamDamage"/>
+          <xs:element ref="Teams"/>
+          <xs:element ref="TestFeaturesOn"/>
+          <xs:element ref="TestLevelsOn"/>
+          <xs:element ref="TrainingIcon"/>
+          <xs:element ref="TurnOffMapArtThemes"/>
+          <xs:element ref="WeaponsOff"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="GameModeName" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GameModeID" type="xs:integer"/>
+  <xs:element name="DisplayNameKey" type="xs:string"/>
+  <xs:element name="CompetitiveLevelSet" type="xs:NCName"/>
+  <xs:element name="DamageRatio" type="xs:integer"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="Duration" type="xs:integer"/>
+  <xs:element name="FixedCamera" type="xs:NCName"/>
+  <xs:element name="ForceCrewBattleCycle" type="xs:NCName"/>
+  <xs:element name="GadgetsOff" type="xs:NCName"/>
+  <xs:element name="GameSpeed" type="xs:decimal"/>
+  <xs:element name="GhostRule" type="xs:NCName"/>
+  <xs:element name="LevelSet" type="xs:NMTOKEN"/>
+  <xs:element name="MaxPlayers" type="xs:integer"/>
+  <xs:element name="RoundDuration" type="xs:integer"/>
+  <xs:element name="ScoreToWin" type="xs:integer"/>
+  <xs:element name="ScoringType" type="xs:NCName"/>
+  <xs:element name="StartingLives" type="xs:integer"/>
+  <xs:element name="TeamDamage" type="xs:NCName"/>
+  <xs:element name="Teams" type="xs:NMTOKEN"/>
+  <xs:element name="TestFeaturesOn" type="xs:NCName"/>
+  <xs:element name="TestLevelsOn" type="xs:NCName"/>
+  <xs:element name="TrainingIcon" type="xs:NMTOKEN"/>
+  <xs:element name="TurnOffMapArtThemes" type="xs:NCName"/>
+  <xs:element name="WeaponsOff" type="xs:NCName"/>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TileTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TileType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TileType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TitleKey"/>
+        <xs:element minOccurs="0" ref="DescriptionKey"/>
+        <xs:element minOccurs="0" ref="Image"/>
+        <xs:element ref="Location"/>
+        <xs:element minOccurs="0" ref="PlatformRequirements"/>
+        <xs:element minOccurs="0" ref="DisplayDate"/>
+        <xs:element minOccurs="0" ref="DisplayTimedEvent"/>
+        <xs:element minOccurs="0" ref="StoreType"/>
+        <xs:element minOccurs="0" ref="PromoType"/>
+        <xs:element minOccurs="0" ref="ChanceBoxIndex"/>
+        <xs:element minOccurs="0" ref="Screen"/>
+        <xs:element minOccurs="0" ref="ScreenStoreTab"/>
+        <xs:element minOccurs="0" ref="ScreenStoreTabPage"/>
+        <xs:element minOccurs="0" ref="EntitlementType"/>
+        <xs:element minOccurs="0" ref="LinkURLs"/>
+        <xs:element minOccurs="0" ref="HideIfOwned"/>
+        <xs:element minOccurs="0" ref="HideIfBeforeDate"/>
+        <xs:element minOccurs="0" ref="HideIfOnOrAfterDate"/>
+        <xs:element minOccurs="0" ref="HideUnlessServer"/>
+        <xs:element minOccurs="0" ref="IsSalesTile"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="WeaponHeaderKeyOverride"/>
+          <xs:element ref="WeaponSubHeaderKeyOverride"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="PromoSplashImage"/>
+          <xs:element ref="PromoQRCodeImage"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TitleKey" type="xs:NCName"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="Image" type="xs:string"/>
+  <xs:element name="Location" type="xs:string"/>
+  <xs:element name="PlatformRequirements" type="xs:string"/>
+  <xs:element name="DisplayDate" type="xs:string"/>
+  <xs:element name="DisplayTimedEvent" type="xs:string"/>
+  <xs:element name="StoreType" type="xs:string"/>
+  <xs:element name="PromoType" type="xs:string"/>
+  <xs:element name="ChanceBoxIndex" type="xs:integer"/>
+  <xs:element name="Screen" type="xs:string"/>
+  <xs:element name="ScreenStoreTab" type="xs:string"/>
+  <xs:element name="ScreenStoreTabPage" type="xs:integer"/>
+  <xs:element name="EntitlementType" type="xs:NMTOKEN"/>
+  <xs:element name="LinkURLs" type="xs:anyURI"/>
+  <xs:element name="HideIfOwned" type="xs:NCName"/>
+  <xs:element name="HideIfBeforeDate" type="xs:string"/>
+  <xs:element name="HideIfOnOrAfterDate" type="xs:string"/>
+  <xs:element name="HideUnlessServer" type="xs:string"/>
+  <xs:element name="IsSalesTile" type="xs:NCName"/>
+  <xs:element name="WeaponHeaderKeyOverride" type="xs:string"/>
+  <xs:element name="WeaponSubHeaderKeyOverride" type="xs:string"/>
+  <xs:element name="PromoSplashImage" type="xs:NMTOKEN"/>
+  <xs:element name="PromoQRCodeImage" type="xs:NMTOKEN"/>
+</xs:schema>

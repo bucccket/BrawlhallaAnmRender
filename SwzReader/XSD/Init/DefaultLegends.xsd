@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DefaultLegends">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Hero1"/>
+        <xs:element ref="Hero2"/>
+        <xs:element ref="Hero3"/>
+        <xs:element ref="Hero4"/>
+        <xs:element ref="Hero5"/>
+        <xs:element ref="Hero6"/>
+        <xs:element ref="Hero7"/>
+        <xs:element ref="Hero8"/>
+        <xs:element ref="Hero9"/>
+        <xs:element ref="ChanceBox1"/>
+        <xs:element ref="ChanceBox2"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Hero1" type="xs:NCName"/>
+  <xs:element name="Hero2" type="xs:NCName"/>
+  <xs:element name="Hero3" type="xs:NCName"/>
+  <xs:element name="Hero4" type="xs:NCName"/>
+  <xs:element name="Hero5" type="xs:NCName"/>
+  <xs:element name="Hero6" type="xs:NCName"/>
+  <xs:element name="Hero7" type="xs:NCName"/>
+  <xs:element name="Hero8" type="xs:NCName"/>
+  <xs:element name="Hero9" type="xs:NCName"/>
+  <xs:element name="ChanceBox1" type="xs:NCName"/>
+  <xs:element name="ChanceBox2" type="xs:NCName"/>
+</xs:schema>

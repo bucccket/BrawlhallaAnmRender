@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="QuestTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="QuestType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuestType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="QuestID"/>
+        <xs:element ref="DescriptionKey"/>
+        <xs:element minOccurs="0" ref="ToolTipKey"/>
+        <xs:element ref="RewardBattleStars"/>
+        <xs:element minOccurs="0" ref="CompleteAsBool"/>
+        <xs:element ref="SuccessCount"/>
+        <xs:element minOccurs="0" ref="MinimumTimeBetweenEvents"/>
+        <xs:element minOccurs="0" ref="UpdateInstantly"/>
+        <xs:element ref="Event1"/>
+        <xs:element minOccurs="0" ref="Event2"/>
+        <xs:element minOccurs="0" ref="Event3"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event4"/>
+          <xs:element ref="Event5"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Event6"/>
+          <xs:element ref="Event7"/>
+          <xs:element ref="Event8"/>
+          <xs:element ref="Event9"/>
+          <xs:element ref="Event10"/>
+          <xs:element ref="Event11"/>
+          <xs:element ref="Event12"/>
+          <xs:element ref="Event13"/>
+          <xs:element ref="Event14"/>
+          <xs:element ref="Event15"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="CheckListKey1"/>
+          <xs:element ref="CheckListKey2"/>
+          <xs:element ref="CheckListKey3"/>
+          <xs:element ref="CheckListKey4"/>
+          <xs:element ref="CheckListKey5"/>
+        </xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="CheckListKey6"/>
+          <xs:element ref="CheckListKey7"/>
+          <xs:element ref="CheckListKey8"/>
+          <xs:element ref="CheckListKey9"/>
+          <xs:element ref="CheckListKey10"/>
+          <xs:element ref="CheckListKey11"/>
+          <xs:element ref="CheckListKey12"/>
+          <xs:element ref="CheckListKey13"/>
+          <xs:element ref="CheckListKey14"/>
+          <xs:element ref="CheckListKey15"/>
+        </xs:sequence>
+      </xs:sequence>
+      <xs:attribute name="Week" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuestID" type="xs:integer"/>
+  <xs:element name="DescriptionKey" type="xs:string"/>
+  <xs:element name="ToolTipKey" type="xs:string"/>
+  <xs:element name="RewardBattleStars" type="xs:integer"/>
+  <xs:element name="CompleteAsBool" type="xs:NCName"/>
+  <xs:element name="SuccessCount" type="xs:integer"/>
+  <xs:element name="MinimumTimeBetweenEvents" type="xs:integer"/>
+  <xs:element name="UpdateInstantly" type="xs:boolean"/>
+  <xs:element name="Event1" type="xs:NMTOKEN"/>
+  <xs:element name="Event2" type="xs:NMTOKEN"/>
+  <xs:element name="Event3" type="xs:NMTOKEN"/>
+  <xs:element name="Event4" type="xs:NMTOKEN"/>
+  <xs:element name="Event5" type="xs:NMTOKEN"/>
+  <xs:element name="Event6" type="xs:NMTOKEN"/>
+  <xs:element name="Event7" type="xs:NMTOKEN"/>
+  <xs:element name="Event8" type="xs:NMTOKEN"/>
+  <xs:element name="Event9" type="xs:NMTOKEN"/>
+  <xs:element name="Event10" type="xs:NMTOKEN"/>
+  <xs:element name="Event11" type="xs:NMTOKEN"/>
+  <xs:element name="Event12" type="xs:NMTOKEN"/>
+  <xs:element name="Event13" type="xs:NMTOKEN"/>
+  <xs:element name="Event14" type="xs:NMTOKEN"/>
+  <xs:element name="Event15" type="xs:NMTOKEN"/>
+  <xs:element name="CheckListKey1" type="xs:string"/>
+  <xs:element name="CheckListKey2" type="xs:string"/>
+  <xs:element name="CheckListKey3" type="xs:string"/>
+  <xs:element name="CheckListKey4" type="xs:string"/>
+  <xs:element name="CheckListKey5" type="xs:string"/>
+  <xs:element name="CheckListKey6" type="xs:string"/>
+  <xs:element name="CheckListKey7" type="xs:string"/>
+  <xs:element name="CheckListKey8" type="xs:string"/>
+  <xs:element name="CheckListKey9" type="xs:string"/>
+  <xs:element name="CheckListKey10" type="xs:string"/>
+  <xs:element name="CheckListKey11" type="xs:string"/>
+  <xs:element name="CheckListKey12" type="xs:string"/>
+  <xs:element name="CheckListKey13" type="xs:string"/>
+  <xs:element name="CheckListKey14" type="xs:string"/>
+  <xs:element name="CheckListKey15" type="xs:string"/>
+</xs:schema>

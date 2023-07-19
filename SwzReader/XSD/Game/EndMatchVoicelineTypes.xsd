@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="EndMatchVoicelineTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EndMatchVoicelineType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndMatchVoicelineType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VoicelineID"/>
+        <xs:element ref="Category"/>
+        <xs:element ref="WWiseSoundName"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="AnimCustomArt"/>
+          <xs:element ref="Weight"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="EndMatchVoicelineName" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoicelineID" type="xs:integer"/>
+  <xs:element name="Category" type="xs:NCName"/>
+  <xs:element name="WWiseSoundName" type="xs:NCName"/>
+  <xs:element name="AnimCustomArt" type="xs:NCName"/>
+  <xs:element name="Weight" type="xs:integer"/>
+</xs:schema>
